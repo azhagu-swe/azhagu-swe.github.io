@@ -8,7 +8,8 @@ import { MainLayout } from "@/components/layout/main-layout";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Gen-Z Portfolio",
+  metadataBase: new URL("https://azhagu-swe.github.io"),
+  title: "Alagappan P | Full-Stack Developer",
   description: "A high-performance, Gen-Z styled Portfolio PWA.",
 };
 
