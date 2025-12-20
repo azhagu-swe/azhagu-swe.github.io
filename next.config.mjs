@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // This tells Next.js to create the /out folder
+  output: 'export',      // Required for GitHub Pages
   images: {
-    unoptimized: true, // GitHub Pages doesn't support the default Next.js Image Optimization
+    unoptimized: true,   // Required for GitHub Pages
   },
+  // Ensure no basePath is set here
 };
 
-module.exports = nextConfig;
+export default nextConfig;
