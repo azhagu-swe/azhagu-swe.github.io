@@ -1,22 +1,9 @@
-
-import withPWAInit from "@ducanh2912/next-pwa";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  distDir: "docs",
+  output: 'export', // This tells Next.js to create the /out folder
   images: {
-    unoptimized: true,
+    unoptimized: true, // GitHub Pages doesn't support the default Next.js Image Optimization
   },
-  reactStrictMode: true,
 };
 
-// const withPWA = withPWAInit({
-//   dest: "public",
-//   disable: true,
-//   register: true,
-//   scope: "/app",
-//   sw: "service-worker.js",
-// });
-
-export default nextConfig;
+module.exports = nextConfig;
