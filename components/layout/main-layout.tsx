@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation"
 import { BottomNav } from "@/components/layout/bottom-nav"
 import { Sidebar } from "@/components/layout/sidebar"
 import { Navbar } from "@/components/layout/navbar"
+import { Footer } from "@/components/layout/footer"
 import { useSidebar } from "@/hooks/use-sidebar"
 import { ScrollToTopFab } from "@/components/ui/scroll-to-top-fab"
 import { useRef } from "react"
@@ -22,21 +23,24 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
 
             {/* Content Column (Right) */}
             <div className="flex flex-col flex-1 overflow-hidden relative transition-all duration-300 gap-2.5 rounded-xl">
-                {/* Top Bar - Dynamic Width */}
-                <div className="rounded-xl overflow-hidden border border-border/50 shadow-sm">
-                    <Navbar onToggleSidebar={toggle} isSidebarOpen={isOpen} />
-                </div>
 
                 {/* Main Content Area */}
                 <main
                     ref={mainRef}
                     className="flex-1 overflow-y-auto overflow-x-hidden relative flex flex-col w-full scroll-smooth rounded-xl border border-border/50 bg-card/30 shadow-sm"
                 >
+                    <div className="sticky top-0 z-40 w-full">
+                        <Navbar onToggleSidebar={toggle} isSidebarOpen={isOpen} />
+                    </div>
+
                     {children}
+
+                    <Footer />
                 </main>
 
                 {/* Mobile Bottom Nav - Persistent */}
                 <div className="lg:hidden sticky bottom-0 z-30">
+
                     <BottomNav />
                 </div>
             </div>

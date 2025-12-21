@@ -1,10 +1,17 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { HERO_DATA } from "@/lib/data"
 
 export function HeroSection() {
-    const sentence = "Hey, I'm Alagu."
-    const letters = sentence.split("")
+    const { name, description } = HERO_DATA;
+    const sentence = "Hey, I'm " + name.split(" ")[0] + "."; // Adapting to keep the friendly intro style if desired, or just use name.
+    // Actually, let's just use the name from data directly or maybe "Hey, I'm [Name]".
+    // The previous text was "Hey, I'm Alagu."
+    // The new name is "Alagappan P".
+    // I will use "Hey, I'm Alagappan P." to be safe and use the data source.
+    const textToAnimate = `Hey, I'm ${name}.`;
+    const letters = textToAnimate.split("");
 
     const container = {
         hidden: { opacity: 0 },
@@ -59,7 +66,7 @@ export function HeroSection() {
                 transition={{ delay: 0.5, duration: 0.5 }}
                 className="text-lg md:text-xl text-muted-foreground font-medium tracking-tight"
             >
-                Full Stack Developer & UI/UX Enthusiast.
+                {description}
             </motion.span>
         </div>
     )

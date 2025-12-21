@@ -2,10 +2,11 @@
 import { getAllPosts } from "@/lib/mdx"
 import { Metadata } from "next"
 import { ProjectList } from "@/components/projects/project-list"
+import { PAGES_DATA } from "@/lib/data"
 
 export const metadata: Metadata = {
-    title: "Projects",
-    description: "Showcase of my work.",
+    title: PAGES_DATA.projects.metadata.title,
+    description: PAGES_DATA.projects.metadata.description,
 }
 
 export default async function ProjectsPage() {
@@ -24,10 +25,10 @@ export default async function ProjectsPage() {
         <div className="container py-10">
             <div className="flex flex-col items-start gap-4 mb-10">
                 <h1 className="inline-block font-heading text-4xl tracking-tight lg:text-5xl">
-                    Projects
+                    {PAGES_DATA.projects.title}
                 </h1>
                 <p className="text-xl text-muted-foreground">
-                    A gallery of my experiments, tools, and apps.
+                    {PAGES_DATA.projects.description}
                 </p>
             </div>
 

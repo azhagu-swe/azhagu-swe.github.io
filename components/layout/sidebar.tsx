@@ -9,13 +9,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
-
-const navItems = [
-    { href: "/", label: "Home", icon: "lucide:home" },
-    { href: "/projects", label: "Projects", icon: "lucide:folder-code" },
-    { href: "/blog", label: "Blog", icon: "lucide:book-open" },
-    { href: "/tutorials", label: "Tutorials", icon: "lucide:graduation-cap" },
-]
+import { siteConfig } from "@/config/site"
 
 interface SidebarProps {
     className?: string
@@ -100,7 +94,7 @@ export function Sidebar({ className, isOpen, isMobile, onClose }: SidebarProps) 
             </div>
 
             <div className="flex-1 px-4 py-2 flex flex-col gap-2 overflow-y-auto overflow-x-hidden scrollbar-thin">
-                {navItems.map((item) => {
+                {siteConfig.mainNav.map((item) => {
                     const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(`${item.href}/`))
                     return (
                         <Link key={item.href} href={item.href}>
@@ -110,7 +104,7 @@ export function Sidebar({ className, isOpen, isMobile, onClose }: SidebarProps) 
                                     isActive ? "text-primary-foreground shadow-md" : "hover:bg-accent hover:text-accent-foreground text-muted-foreground",
                                     isCollapsed && "justify-center px-2"
                                 )}
-                                title={isCollapsed ? item.label : undefined}
+                                title={isCollapsed ? item.title : undefined}
                             >
                                 <Icon icon={item.icon} className={cn("w-5 h-5 shrink-0 z-10", isActive ? "animate-pulse" : "")} />
                                 {!isCollapsed && (
@@ -120,7 +114,7 @@ export function Sidebar({ className, isOpen, isMobile, onClose }: SidebarProps) 
                                         exit={{ opacity: 0 }}
                                         className="font-medium whitespace-nowrap overflow-hidden z-10"
                                     >
-                                        {item.label}
+                                        {item.title}
                                     </motion.span>
                                 )}
                                 {isActive && (

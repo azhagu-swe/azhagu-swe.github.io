@@ -8,6 +8,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { BentoCard } from "@/components/ui/bento-card"
 import { HeroSection } from "@/components/hero-section"
+import { HOME_DATA, TECH_ICONS, SOCIAL_LINKS } from "@/lib/data"
 
 export default function Home() {
   return (
@@ -25,7 +26,7 @@ export default function Home() {
             className="row-span-2 min-h-[300px]"
             componentWrapper={BentoCard} // Use the new wrapper
             title={<HeroSection />} // Use the new Hero
-            description="I build pixel-perfect, accessible, and high-performance web applications with a focus on user experience."
+            description={HOME_DATA.hero.description}
             header={
               <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 items-center justify-center relative overflow-hidden group">
                 <div className="absolute inset-0 bg-grid-black/[0.1] dark:bg-grid-white/[0.1] bg-[size:20px_20px] [mask-image:linear-gradient(to_bottom,white,transparent)]" />
@@ -37,9 +38,9 @@ export default function Home() {
           {/* Theme Switcher Showcase - 1x1 */}
           <BentoItem
             colSpan={1}
-            title="Theme System"
+            title={HOME_DATA.theme.title}
             componentWrapper={BentoCard}
-            description="Try the Emerald, Abyss, or Paper modes."
+            description={HOME_DATA.theme.description}
             header={
               <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-secondary/50 items-center justify-center">
                 <ThemeToggle />
@@ -50,17 +51,17 @@ export default function Home() {
           {/* Socials - 1x1 */}
           <BentoItem
             colSpan={1}
-            title="Connect"
+            title={HOME_DATA.connect.title}
             componentWrapper={BentoCard}
-            description="Find me on the internet."
+            description={HOME_DATA.connect.description}
             header={
               <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-background/50 border border-border/50 items-center justify-center gap-4">
-                <Link href="https://github.com" target="_blank">
+                <Link href={SOCIAL_LINKS.find(l => l.platform === 'GitHub')?.link || '#'} target="_blank">
                   <Button variant="outline" size="icon" className="rounded-full w-12 h-12">
                     <Icon icon="mdi:github" className="w-6 h-6" />
                   </Button>
                 </Link>
-                <Link href="https://twitter.com" target="_blank">
+                <Link href={SOCIAL_LINKS.find(l => l.platform.includes('Twitter') || l.platform.includes('X'))?.link || '#'} target="_blank">
                   <Button variant="outline" size="icon" className="rounded-full w-12 h-12">
                     <Icon icon="mdi:twitter" className="w-6 h-6" />
                   </Button>
@@ -72,9 +73,9 @@ export default function Home() {
           {/* Projects Link - 2x1 */}
           <BentoItem
             colSpan={2}
-            title="Projects"
+            title={HOME_DATA.projects.title}
             componentWrapper={BentoCard}
-            description="Check out my latest work and experiments."
+            description={HOME_DATA.projects.description}
             header={
               <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-r from-violet-500 to-purple-500 items-center justify-center">
                 <Icon icon="lucide:code-2" className="w-16 h-16 text-white" />
@@ -86,9 +87,9 @@ export default function Home() {
           {/* Blog Link - 1x1 */}
           <BentoItem
             colSpan={1}
-            title="Blog"
+            title={HOME_DATA.blog.title}
             componentWrapper={BentoCard}
-            description="Read my thoughts on tech."
+            description={HOME_DATA.blog.description}
             header={
               <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-500 items-center justify-center">
                 <Icon icon="lucide:book-open" className="w-12 h-12 text-white" />
@@ -100,17 +101,17 @@ export default function Home() {
           {/* Tech Stack - 3x1 */}
           <BentoItem
             colSpan={3}
-            title="Tech Stack"
+            title={HOME_DATA.techStack.title}
             componentWrapper={BentoCard}
-            description="The tools I use to build."
+            description={HOME_DATA.techStack.description}
             header={
               <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-card/50 border border-border/50 items-center justify-around px-4 overflow-hidden">
-                <Icon icon="logos:nextjs-icon" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
-                <Icon icon="logos:react" className="w-10 h-10 blur-[1px] hover:blur-0 transition-all" />
-                <Icon icon="logos:tailwindcss-icon" className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
-                <Icon icon="logos:typescript-icon" className="w-10 h-10 blur-[1px] hover:blur-0 transition-all" />
-                <Icon icon="simple-icons:shadcnui" className="w-10 h-10 text-black dark:text-white grayscale hover:grayscale-0 transition-all" />
-                <Icon icon="logos:framer" className="w-10 h-10 blur-[1px] hover:blur-0 transition-all" />
+                <Icon icon={TECH_ICONS.NextJS} className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+                <Icon icon={TECH_ICONS.React} className="w-10 h-10 blur-[1px] hover:blur-0 transition-all" />
+                <Icon icon={TECH_ICONS.Tailwind} className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
+                <Icon icon={TECH_ICONS.TypeScript} className="w-10 h-10 blur-[1px] hover:blur-0 transition-all" />
+                <Icon icon={TECH_ICONS.ShadcnUI} className="w-10 h-10 text-black dark:text-white grayscale hover:grayscale-0 transition-all" />
+                <Icon icon={TECH_ICONS.FramerMotion} className="w-10 h-10 blur-[1px] hover:blur-0 transition-all" />
               </div>
             }
           />

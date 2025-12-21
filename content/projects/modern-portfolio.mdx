@@ -1,7 +1,7 @@
 ---
 title: "Modern Portfolio"
 date: "2025-10-01"
-description: "A high-performance PWA built with Next.js 16, Tailwind CSS, and Shadcn/UI. Features a custom Matrix theme and MDX engine."
+description: "A high-performance Progressive Web App (PWA) engineered with Next.js 16 and Tailwind CSS. Implementing a custom MDX engine to optimize content delivery."
 tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"]
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
 demoUrl: "https://example.com"
@@ -11,24 +11,28 @@ published: true
 
 # Overview
 
-This portfolio was built to showcase high-performance web development skills. It uses **Next.js 16** with the App Router and Turbopack for lightning-fast builds.
+This **Modern Portfolio** serves as a comprehensive demonstration of **Full-Stack Development** capabilities, leveraging **Next.js 16** and the App Router to achieve exceptional performance scores. By integrating **Turbopack**, I optimized the build process to minimize deployment times while ensuring a responsive, accessible user experience.
 
-## Key Features
+## Technical Implementation
 
 ### 1. Theming System
-Built with `next-themes`, it supports three distinct modes:
-- **Paper**: A clean, minimalist light mode.
-- **OLED**: A deep black dark mode for high-contrast screens.
-- **Matrix**: A hacker-style green theme.
+Designed with accessibility in mind, the theming system utilizes `next-themes` to provide:
+- **Paper**: A high-readability light mode for long-form content.
+- **OLED**: A battery-saving deep black mode optimizing contrast.
+- **Matrix**: A developer-centric custom theme showcasing CSS variable mastery.
 
-### 2. MDX Engine
-Content is managed via MDX files, allowing for rich content authoring with React components embedded directly in markdown.
+### 2. Custom MDX Engine
+To bypass standard CMS limitations, I built a custom **MDX Engine**. This allows for:
+- Server-side rendering of rich content.
+- Direct hydration of React components like `<Button />` within markdown.
+- Optimizing First Contentful Paint (FCP) by reducing client-side JavaScript.
 
 ```tsx
-// Example Component
+// Example of embedded React component in Markdown
 <Button>Click Me</Button>
 ```
 
-## Technical Challenges
+## Challenges & Solutions
 
-One of the main challenges was integrating `next-pwa` with Next.js 16's Turbopack, which required careful configuration and fallback strategies.
+### Integrating PWA with Turbopack
+Enabling Offline capabilities required configuring `next-pwa` to work seamlessly with the new bundling architecture of Next.js 16. I addressed module resolution conflicts by implementing a custom Webpack fallback strategy.

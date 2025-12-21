@@ -6,27 +6,32 @@ export const siteConfig = {
         {
             title: "Home",
             href: "/",
-            icon: "ph:house-bold",
+            icon: "lucide:home",
         },
         {
             title: "Projects",
             href: "/projects",
-            icon: "ph:rocket-launch-bold",
+            icon: "lucide:folder-code",
         },
         {
             title: "Blog",
             href: "/blog",
-            icon: "ph:newspaper-bold",
+            icon: "lucide:book-open",
         },
         {
             title: "Tutorials",
             href: "/tutorials",
-            icon: "ph:student-bold",
+            icon: "lucide:graduation-cap",
         },
         {
             title: "About",
             href: "/about",
-            icon: "ph:user-bold",
+            icon: "lucide:user",
+        },
+        {
+            title: "Contact",
+            href: "/contact",
+            icon: "lucide:mail",
         },
     ],
     links: {
