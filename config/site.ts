@@ -1,6 +1,6 @@
 
 export const siteConfig = {
-    name: "Gen-Z Portfolio",
+    name: "Azhagu-swe",
     description: "A high-performance, Gen-Z styled Portfolio PWA.",
     mainNav: [
         {

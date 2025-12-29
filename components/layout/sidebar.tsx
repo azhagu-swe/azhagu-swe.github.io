@@ -66,6 +66,7 @@ export function Sidebar({ className, isOpen, isMobile, onClose }: SidebarProps) 
                 size="icon"
                 className="absolute -right-3 top-6 z-50 h-6 w-6 rounded-full border border-border bg-background shadow-md hover:bg-accent hidden lg:flex"
                 onClick={toggleCollapse}
+                aria-label={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
             >
                 <Icon
                     icon={isCollapsed ? "lucide:chevron-right" : "lucide:chevron-left"}

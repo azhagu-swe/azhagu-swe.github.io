@@ -1,3 +1,5 @@
+import { SocialLink, ExperienceRole, SkillCategory, Certification, Achievement, ProjectData } from "./types";
+
 export const BASE_URLS = {
     PORTFOLIO: "https://azhagu-swe.github.io",
     PROFILE_IMAGE: "/image/profile.png",
@@ -12,7 +14,7 @@ const SHARED_TEXT = {
     SHORT_BIO: "I build scalable, high-performance applications that solve real-world problems. With expertise in Java, Spring Boot, and modern web technologies, I transform complex requirements into elegant, efficient solutions. Let's create something amazing together!",
 };
 
-export const SOCIAL_LINKS = [
+export const SOCIAL_LINKS: SocialLink[] = [
     {
         platform: "Email",
         icon: "mdi:email-outline",
@@ -110,7 +112,7 @@ export const CONTACT_DATA = {
     socialLinks: SOCIAL_LINKS,
 };
 
-export const SKILLS_DATA = [
+export const SKILLS_DATA: SkillCategory[] = [
     {
         title: "Languages",
         skills: "Java (Core 8+), SQL, JavaScript, HTML, CSS, TypeScript",
@@ -133,7 +135,7 @@ export const SKILLS_DATA = [
     },
 ];
 
-export const CERTIFICATIONS_DATA = (basePath: string = "") => [
+export const CERTIFICATIONS_DATA = (basePath: string = ""): Certification[] => [
     {
         description: "Full Stack Java Development - Simplilearn, 2022",
         img: `${basePath}/image/Java-Full-Stack-skillup.png`,
@@ -152,7 +154,7 @@ export const CERTIFICATIONS_DATA = (basePath: string = "") => [
     },
 ];
 
-export const ACHIEVEMENTS_DATA = (basePath: string = "") => [
+export const ACHIEVEMENTS_DATA = (basePath: string = ""): Achievement[] => [
     {
         description:
             "🏆 Secured Second Prize in a Debugging Competition at National College, Trichy.",
@@ -160,7 +162,7 @@ export const ACHIEVEMENTS_DATA = (basePath: string = "") => [
     },
 ];
 
-export const PARTICIPATIONS_DATA = (basePath: string = "") => [
+export const PARTICIPATIONS_DATA = (basePath: string = ""): Achievement[] => [
     {
         description:
             "🏅 National Level Workshop: Web Application Frameworks (Struts, Spring, Hibernate) - Anna University, Trichy.",

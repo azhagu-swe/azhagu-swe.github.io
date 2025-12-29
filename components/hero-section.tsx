@@ -3,13 +3,10 @@
 import { motion } from "framer-motion"
 import { HERO_DATA } from "@/lib/data"
 
+import Image from "next/image"
+
 export function HeroSection() {
-    const { name, description } = HERO_DATA;
-    const sentence = "Hey, I'm " + name.split(" ")[0] + "."; // Adapting to keep the friendly intro style if desired, or just use name.
-    // Actually, let's just use the name from data directly or maybe "Hey, I'm [Name]".
-    // The previous text was "Hey, I'm Alagu."
-    // The new name is "Alagappan P".
-    // I will use "Hey, I'm Alagappan P." to be safe and use the data source.
+    const { name, description, images } = HERO_DATA;
     const textToAnimate = `Hey, I'm ${name}.`;
     const letters = textToAnimate.split("");
 
@@ -43,31 +40,49 @@ export function HeroSection() {
     } as any
 
     return (
-        <div className="flex flex-col gap-2">
+        <section className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12" aria-label="Introduction">
+            <div className="flex-1 flex flex-col gap-4">
+                <motion.div
+                    className="overflow-hidden flex flex-wrap"
+                    variants={container}
+                    initial="hidden"
+                    animate="visible"
+                >
+                    {letters.map((letter, index) => (
+                        <motion.h1
+                            variants={child}
+                            key={index}
+                            className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground inline-block"
+                        >
+                            {letter === " " ? "\u00A0" : letter}
+                        </motion.h1>
+                    ))}
+                </motion.div>
+                <motion.p
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.5, duration: 0.5 }}
+                    className="text-lg md:text-xl text-muted-foreground font-medium tracking-tight leading-relaxed max-w-2xl"
+                >
+                    {description}
+                </motion.p>
+            </div>
+
             <motion.div
-                className="overflow-hidden flex flex-wrap"
-                variants={container}
-                initial="hidden"
-                animate="visible"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="relative w-32 h-32 md:w-48 md:h-48 shrink-0"
             >
-                {letters.map((letter, index) => (
-                    <motion.span
-                        variants={child}
-                        key={index}
-                        className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground"
-                    >
-                        {letter === " " ? "\u00A0" : letter}
-                    </motion.span>
-                ))}
+                <Image
+                    src={images.profile}
+                    alt={name}
+                    fill
+                    priority
+                    className="object-cover rounded-full border-4 border-border/50 shadow-xl"
+                    sizes="(max-width: 768px) 128px, 192px"
+                />
             </motion.div>
-            <motion.span
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="text-lg md:text-xl text-muted-foreground font-medium tracking-tight"
-            >
-                {description}
-            </motion.span>
-        </div>
+        </section>
     )
 }

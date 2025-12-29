@@ -6,7 +6,21 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { MainLayout } from "@/components/layout/main-layout";
 import { FaviconManager } from "@/components/favicon-manager";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: 'swap' });
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Alagappan P",
+  url: "https://azhagu-swe.github.io",
+  jobTitle: "Full Stack Developer",
+  sameAs: [
+    "https://github.com/azhagu-swe",
+    "https://www.linkedin.com/in/azhagu-swe/",
+    "https://twitter.com/azhagu_swe"
+  ],
+  description: "A high-performance, Gen-Z styled Portfolio PWA."
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://azhagu-swe.github.io"),
@@ -28,6 +42,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ThemeProvider
           attribute="data-theme"
           defaultTheme="system"
