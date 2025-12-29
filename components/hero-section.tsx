@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { HERO_DATA } from "@/lib/data"
 
 import Image from "next/image"
+import { Icon } from "@iconify/react";
 
 export function HeroSection() {
     const { name, description, images } = HERO_DATA;
@@ -92,16 +93,33 @@ export function HeroSection() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="relative w-32 h-32 md:w-48 md:h-48 shrink-0"
+                className="relative group"
             >
-                <Image
-                    src={images.profile}
-                    alt={name}
-                    fill
-                    priority
-                    className="object-cover rounded-full border-4 border-border/50 shadow-xl"
-                    sizes="(max-width: 768px) 128px, 192px"
-                />
+                <div className="relative w-32 h-32 md:w-48 md:h-48 shrink-0 overflow-hidden rounded-full border-4 border-primary/50 shadow-2xl shadow-primary/20 transition-all duration-500 group-hover:scale-105 group-hover:shadow-primary/50 group-hover:border-primary">
+                    <Image
+                        src={images.profile}
+                        alt={name}
+                        fill
+                        priority
+                        className="object-cover transition-all duration-500 group-hover:opacity-80 group-hover:grayscale"
+                        sizes="(max-width: 768px) 128px, 192px"
+                    />
+
+                    {/* Matrix Scanline Effect */}
+                    <div className="absolute inset-x-0 top-0 h-full w-full bg-gradient-to-b from-transparent via-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 animate-scan" style={{ backgroundSize: '100% 200%' }} />
+
+                    {/* Horizontal Scan Lines Overlay */}
+                    <div className="absolute inset-0 bg-[url('/scanlines.png')] opacity-10 pointer-events-none" style={{ backgroundSize: '4px 4px' }} />
+
+                    {/* Glitch Overlay Text (Optional creative touch) */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <Icon icon="simple-icons:matrix" className="w-12 h-12 text-primary animate-pulse" />
+                    </div>
+                </div>
+
+                {/* Rotating Rings */}
+                <div className="absolute -inset-2 rounded-full border border-primary/20 border-t-primary/60 w-[calc(100%+16px)] h-[calc(100%+16px)] animate-[spin_4s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute -inset-4 rounded-full border border-primary/10 border-b-primary/40 w-[calc(100%+32px)] h-[calc(100%+32px)] animate-[spin_7s_linear_infinite_reverse] opacity-0 group-hover:opacity-100 transition-opacity" />
             </motion.div>
         </section>
     )
