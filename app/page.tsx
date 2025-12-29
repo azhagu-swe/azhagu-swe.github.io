@@ -1,123 +1,85 @@
 "use client"
 
-import { BentoGrid, BentoItem } from "@/components/home/bento-grid"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { Icon } from "@iconify/react"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { BentoCard } from "@/components/ui/bento-card"
 import { HeroSection } from "@/components/hero-section"
-import { HOME_DATA, TECH_ICONS, SOCIAL_LINKS } from "@/lib/data"
+import { StatsCard } from "@/components/dashboard/stats-card"
+import { ActivityGraph } from "@/components/dashboard/activity-graph"
+import { RecentWorkList } from "@/components/dashboard/recent-work-list"
+import { SKILLS_DATA, CERTIFICATIONS_DATA } from "@/lib/data"
 
 export default function Home() {
+  // Derived Stats
+  const yearsExp = 3 // Could derive from EXPERIENCE_DATA dates or hardcode as per data
+  const projectsCount = 5 // Placeholder
+  const skillsCount = SKILLS_DATA.reduce((acc, cat) => acc + cat.skills.split(',').length, 0)
+  const certsCount = CERTIFICATIONS_DATA().length
+
   return (
-    <div className="container pt-10 pb-0 min-h-screen flex flex-col justify-center">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <BentoGrid className="max-w-5xl mx-auto auto-rows-[minmax(100px,auto)]">
+    <div className="container max-w-7xl mx-auto pt-20 pb-24 px-4 flex flex-col gap-8 min-h-screen">
 
-          {/* Hero Section - 2x2 */}
-          <BentoItem
-            colSpan={2}
-            className="row-span-2 min-h-[300px]"
-            componentWrapper={BentoCard} // Use the new wrapper
-            title={<HeroSection />} // Use the new Hero
-            description={HOME_DATA.hero.description}
-            header={
-              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 items-center justify-center relative overflow-hidden group">
-                <div className="absolute inset-0 bg-grid-black/[0.1] dark:bg-grid-white/[0.1] bg-[size:20px_20px] [mask-image:linear-gradient(to_bottom,white,transparent)]" />
-                <Icon icon="fluent-emoji:waving-hand" className="w-24 h-24 md:w-32 md:h-32 group-hover:scale-110 transition-transform duration-300" />
-              </div>
-            }
-          />
+      {/* Top Row: Hero and Intro */}
+      <div className="w-full">
+        <HeroSection />
+      </div>
 
-          {/* Theme Switcher Showcase - 1x1 */}
-          <BentoItem
-            colSpan={1}
-            title={HOME_DATA.theme.title}
-            componentWrapper={BentoCard}
-            description={HOME_DATA.theme.description}
-            header={
-              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-secondary/50 items-center justify-center">
-                <ThemeToggle />
-              </div>
-            }
-          />
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <StatsCard
+          title="Years Experience"
+          value={`${yearsExp}+`}
+          icon="lucide:calendar-clock"
+          trend="Growing"
+          trendUp={true}
+          delay={0.1}
+        />
+        <StatsCard
+          title="Projects"
+          value={projectsCount.toString()}
+          icon="lucide:rocket"
+          description="Web Apps & Tools"
+          delay={0.2}
+        />
+        <StatsCard
+          title="Tech Skills"
+          value={skillsCount.toString()}
+          icon="lucide:cpu"
+          trend="Latest Stack"
+          trendUp={true}
+          delay={0.3}
+        />
+        <StatsCard
+          title="Certifications"
+          value={certsCount.toString()}
+          icon="lucide:award"
+          delay={0.4}
+        />
+      </div>
 
-          {/* Socials - 1x1 */}
-          <BentoItem
-            colSpan={1}
-            title={HOME_DATA.connect.title}
-            componentWrapper={BentoCard}
-            description={HOME_DATA.connect.description}
-            header={
-              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-background/50 border border-border/50 items-center justify-center gap-4">
-                <Link href={SOCIAL_LINKS.find(l => l.platform === 'GitHub')?.link || '#'} target="_blank">
-                  <Button variant="outline" size="icon" className="rounded-full w-12 h-12">
-                    <Icon icon="mdi:github" className="w-6 h-6" />
-                  </Button>
-                </Link>
-                <Link href={SOCIAL_LINKS.find(l => l.platform.includes('Twitter') || l.platform.includes('X'))?.link || '#'} target="_blank">
-                  <Button variant="outline" size="icon" className="rounded-full w-12 h-12">
-                    <Icon icon="mdi:twitter" className="w-6 h-6" />
-                  </Button>
-                </Link>
-              </div>
-            }
-          />
+      {/* Main Dashboard Content */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Main Content Area (2 cols) */}
+        <div className="lg:col-span-2 flex flex-col gap-6">
+          <RecentWorkList />
+        </div>
 
-          {/* Projects Link - 2x1 */}
-          <BentoItem
-            colSpan={2}
-            title={HOME_DATA.projects.title}
-            componentWrapper={BentoCard}
-            description={HOME_DATA.projects.description}
-            header={
-              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-r from-violet-500 to-purple-500 items-center justify-center">
-                <Icon icon="lucide:code-2" className="w-16 h-16 text-white" />
-              </div>
-            }
-            onClick={() => window.location.href = '/projects'}
-          />
+        {/* Sidebar Area (1 col) */}
+        <div className="flex flex-col gap-6">
+          <ActivityGraph />
 
-          {/* Blog Link - 1x1 */}
-          <BentoItem
-            colSpan={1}
-            title={HOME_DATA.blog.title}
-            componentWrapper={BentoCard}
-            description={HOME_DATA.blog.description}
-            header={
-              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-500 items-center justify-center">
-                <Icon icon="lucide:book-open" className="w-12 h-12 text-white" />
-              </div>
-            }
-            onClick={() => window.location.href = '/blog'}
-          />
-
-          {/* Tech Stack - 3x1 */}
-          <BentoItem
-            colSpan={3}
-            title={HOME_DATA.techStack.title}
-            componentWrapper={BentoCard}
-            description={HOME_DATA.techStack.description}
-            header={
-              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-card/50 border border-border/50 items-center justify-around px-4 overflow-hidden">
-                <Icon icon={TECH_ICONS.NextJS} className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
-                <Icon icon={TECH_ICONS.React} className="w-10 h-10 blur-[1px] hover:blur-0 transition-all" />
-                <Icon icon={TECH_ICONS.Tailwind} className="w-10 h-10 grayscale hover:grayscale-0 transition-all" />
-                <Icon icon={TECH_ICONS.TypeScript} className="w-10 h-10 blur-[1px] hover:blur-0 transition-all" />
-                <Icon icon={TECH_ICONS.ShadcnUI} className="w-10 h-10 text-black dark:text-white grayscale hover:grayscale-0 transition-all" />
-                <Icon icon={TECH_ICONS.FramerMotion} className="w-10 h-10 blur-[1px] hover:blur-0 transition-all" />
-              </div>
-            }
-          />
-
-        </BentoGrid>
-      </motion.div>
+          <div className="rounded-2xl border border-border/50 bg-card/30 p-6 backdrop-blur-md flex-1 min-h-[200px]">
+            <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
+            <div className="grid grid-cols-2 gap-3">
+              <a href="/contact" className="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors border border-primary/10">
+                <span className="text-2xl">✉️</span>
+                <span className="text-xs font-medium">Contact</span>
+              </a>
+              <a href="/pdf/azhagu-resume.pdf" target="_blank" className="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors border border-primary/10">
+                <span className="text-2xl">📄</span>
+                <span className="text-xs font-medium">Resume</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 }

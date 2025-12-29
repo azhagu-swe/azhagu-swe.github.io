@@ -11,7 +11,7 @@
     --card-foreground: 240 5.9% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 5.9% 10%;
-    --primary: 240 5.9% 10%;
+    --primary: 142 70% 50%;
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -124,6 +124,6 @@
   }
 
   .glass-panel {
-    @apply bg-card/30 backdrop-blur-md border-t border-l border-white/10 shadow-xl;
+    @apply bg-white/40 backdrop-blur-md border-t border-l border-white/10 shadow-xl;
   }
 }

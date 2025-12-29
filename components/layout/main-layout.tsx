@@ -33,9 +33,13 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                         <Navbar onToggleSidebar={toggle} isSidebarOpen={isOpen} />
                     </div>
 
-                    {children}
+                    <div className="flex-1 w-full">
+                        {children}
+                    </div>
 
-                    <Footer />
+                    <div className="shrink-0 z-10 relative">
+                        <Footer />
+                    </div>
                 </main>
 
                 {/* Mobile Bottom Nav - Persistent */}

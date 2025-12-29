@@ -7,7 +7,7 @@ export function Footer() {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="w-full border-t border-border/50 bg-card/30 backdrop-blur-sm mt-auto">
+        <footer className="w-full border-t border-border/50 bg-card/30 backdrop-blur-sm">
             <div className="container max-w-5xl mx-auto px-4 py-8 md:py-12">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
                     {/* Brand */}
@@ -36,7 +36,7 @@ export function Footer() {
                         </nav>
                     </div>
 
-                    {/* Socials */}
+                    {/* Socials & CTA */}
                     <div className="space-y-4">
                         <h4 className="font-semibold text-sm tracking-widest uppercase text-muted-foreground">Connect</h4>
                         <div className="flex flex-wrap gap-4">
@@ -51,6 +51,14 @@ export function Footer() {
                                     <Icon icon={link.icon} className="w-5 h-5" />
                                 </Link>
                             ))}
+                        </div>
+                        <div className="flex flex-col gap-2 pt-2">
+                            <a href="/contact" className="inline-flex h-9 items-center justify-center rounded-md bg-secondary/50 px-4 text-sm font-medium transition-colors hover:bg-primary hover:text-primary-foreground">
+                                Let's Connect
+                            </a>
+                            <a href="/pdf/azhagu-resume.pdf" target="_blank" className="inline-flex h-9 items-center justify-center rounded-md border border-input bg-transparent px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">
+                                Download Resume
+                            </a>
                         </div>
                     </div>
                 </div>

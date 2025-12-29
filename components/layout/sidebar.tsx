@@ -109,8 +109,10 @@ export function Sidebar({ className, isOpen, isMobile, onClose }: SidebarProps) 
                             <Link key={item.href} href={item.href}>
                                 <div
                                     className={cn(
-                                        "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group relative overflow-hidden",
-                                        isActive ? "text-primary-foreground shadow-md" : "hover:bg-accent hover:text-accent-foreground text-muted-foreground",
+                                        "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group relative overflow-hidden",
+                                        isActive
+                                            ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                                            : "hover:bg-primary/10 hover:text-primary text-muted-foreground hover:shadow-[0_0_20px_hsla(142,70%,50%,0.2)]",
                                         isCollapsed && "justify-center px-2"
                                     )}
                                     title={isCollapsed ? item.title : undefined}
@@ -154,8 +156,10 @@ export function Sidebar({ className, isOpen, isMobile, onClose }: SidebarProps) 
                             <Link key={item.href} href={item.href}>
                                 <div
                                     className={cn(
-                                        "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group relative overflow-hidden",
-                                        isActive ? "text-primary-foreground shadow-md" : "hover:bg-accent hover:text-accent-foreground text-muted-foreground",
+                                        "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group relative overflow-hidden",
+                                        isActive
+                                            ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                                            : "hover:bg-primary/10 hover:text-primary text-muted-foreground hover:shadow-[0_0_20px_hsla(142,70%,50%,0.2)]",
                                         isCollapsed && "justify-center px-2"
                                     )}
                                     title={isCollapsed ? item.title : undefined}

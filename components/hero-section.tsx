@@ -66,6 +66,26 @@ export function HeroSection() {
                 >
                     {description}
                 </motion.p>
+                <div className="flex items-center gap-4 pt-2">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6, duration: 0.5 }}
+                    >
+                        <a href="/contact" className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
+                            Let's Connect
+                        </a>
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.7, duration: 0.5 }}
+                    >
+                        <a href="/pdf/azhagu-resume.pdf" target="_blank" className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
+                            Download Resume
+                        </a>
+                    </motion.div>
+                </div>
             </div>
 
             <motion.div
