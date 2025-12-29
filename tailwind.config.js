@@ -55,6 +55,31 @@ module.exports = {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			keyframes: {
+				scan: {
+					'0%': { backgroundPosition: '0% -100%' },
+					'100%': { backgroundPosition: '0% 100%' },
+				},
+				glitch: {
+					'0%': { transform: 'translate(0)' },
+					'20%': { transform: 'translate(-2px, 2px)' },
+					'40%': { transform: 'translate(-2px, -2px)' },
+					'60%': { transform: 'translate(2px, 2px)' },
+					'80%': { transform: 'translate(2px, -2px)' },
+					'100%': { transform: 'translate(0)' },
+				},
+				flicker: {
+					'0%': { opacity: '0.97' },
+					'5%': { opacity: '0.9' },
+					'10%': { opacity: '0.97' },
+					'100%': { opacity: '0.97' },
+				},
+			},
+			animation: {
+				scan: 'scan 2s linear infinite',
+				glitch: 'glitch 0.3s cubic-bezier(.25, .46, .45, .94) both',
+				flicker: 'flicker 30s infinite',
 			}
 		}
 	},

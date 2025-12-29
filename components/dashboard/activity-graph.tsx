@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
 
 export function ActivityGraph() {
     // Mock data for the visual curve
@@ -25,7 +26,7 @@ export function ActivityGraph() {
     })
 
     return (
-        <div className="relative h-full w-full min-h-[120px] rounded-2xl border border-border/50 bg-card/30 p-6 backdrop-blur-md overflow-hidden">
+        <MatrixWrapper className="relative h-full w-full min-h-[120px] rounded-2xl border border-border/50 bg-card/30 p-6 backdrop-blur-md overflow-hidden">
             <div className="flex flex-col gap-1 mb-4">
                 <h3 className="text-lg font-semibold">Activity</h3>
                 <p className="text-xs text-muted-foreground">Code commits over time</p>
@@ -48,6 +49,7 @@ export function ActivityGraph() {
 
                 {/* Overlay Area Chart Effect - Optional, maybe stick to bars for 'Matrix' equalizer vibe */}
             </div>
-        </div>
+        </MatrixWrapper>
+
     )
 }

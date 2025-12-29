@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
 import { Icon } from "@iconify/react"
 import { siteConfig } from "@/config/site"
 import { SOCIAL_LINKS } from "@/lib/data"

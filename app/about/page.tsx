@@ -11,6 +11,8 @@ import { Separator } from "@/components/ui/separator"
 import { Icon } from "@iconify/react"
 import { Metadata } from "next"
 import Image from "next/image"
+import { DecipherText } from "@/components/ui/decipher-text"
+import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
 
 export const metadata: Metadata = {
     title: "About | Alagappan P",
@@ -22,9 +24,12 @@ export default function AboutPage() {
         <div className="container pt-10 pb-0 max-w-5xl mx-auto space-y-16">
             {/* Header Section */}
             <section className="space-y-4">
-                <h1 className="font-heading text-4xl font-bold tracking-tight lg:text-5xl">
-                    About Me
-                </h1>
+                <DecipherText
+                    text="About Me"
+                    className="font-heading text-4xl font-bold tracking-tight lg:text-5xl"
+                    revealOn="load"
+                    animate={true}
+                />
                 <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
                     {EXPERIENCE_DATA.header.subtitle}
                 </p>
@@ -85,20 +90,22 @@ export default function AboutPage() {
 
                 <div className="grid gap-6 md:grid-cols-2">
                     {SKILLS_DATA.map((category, index) => (
-                        <Card key={index} className="bg-card/50 backdrop-blur-sm border-border/50">
-                            <CardHeader>
-                                <CardTitle className="text-lg">{category.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="flex flex-wrap gap-2">
-                                    {category.skills.split(", ").map((skill) => (
-                                        <Badge key={skill} variant="outline">
-                                            {skill}
-                                        </Badge>
-                                    ))}
-                                </div>
-                            </CardContent>
-                        </Card>
+                        <MatrixWrapper key={index} className="rounded-xl">
+                            <Card className="bg-card/50 backdrop-blur-sm border-border/50 h-full">
+                                <CardHeader>
+                                    <CardTitle className="text-lg">{category.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="flex flex-wrap gap-2">
+                                        {category.skills.split(", ").map((skill) => (
+                                            <Badge key={skill} variant="outline">
+                                                {skill}
+                                            </Badge>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </MatrixWrapper>
                     ))}
                 </div>
             </section>
@@ -109,53 +116,54 @@ export default function AboutPage() {
             <section className="space-y-8">
                 <div className="flex items-center gap-2">
                     <Icon icon="lucide:trophy" className="w-6 h-6 text-primary" />
+                    {/* Simplified heading just to show decipher text on main ones usually, but here just h2 is fine or decipher */}
                     <h2 className="text-2xl font-bold tracking-tight">Achievements</h2>
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-2">
                     {ACHIEVEMENTS_DATA("").map((item, index) => (
-                        <Card key={index} className="overflow-hidden group bg-card/50 border-border/50">
-                            {/* Note: In a real scenario usually images are handled with Next.js Image component, 
-                                 but the data source has relative paths that might need processing or use as src directly if in public.
-                                 Assuming data paths start with /image/... which maps to public/image/... */}
-                            <div className="relative h-48 w-full overflow-hidden bg-muted">
-                                {/* Placeholder or Image if valid */}
-                                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-secondary">
-                                    <Icon icon="lucide:image" className="w-8 h-8 opacity-20" />
+                        <MatrixWrapper key={index} className="rounded-xl h-full">
+                            <Card className="overflow-hidden group bg-card/50 border-border/50 h-full">
+                                <div className="relative h-48 w-full overflow-hidden bg-muted">
+                                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-secondary">
+                                        <Icon icon="lucide:image" className="w-8 h-8 opacity-20" />
+                                    </div>
+                                    <Image
+                                        src={item.img}
+                                        alt="Achievement"
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    />
                                 </div>
-                                <Image
-                                    src={item.img}
-                                    alt="Achievement"
-                                    fill
-                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
-                            </div>
-                            <CardContent className="p-4">
-                                <p className="text-sm font-medium leading-relaxed">
-                                    {item.description}
-                                </p>
-                            </CardContent>
-                        </Card>
+                                <CardContent className="p-4">
+                                    <p className="text-sm font-medium leading-relaxed">
+                                        {item.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </MatrixWrapper>
                     ))}
                     {PARTICIPATIONS_DATA("").map((item, index) => (
-                        <Card key={`part-${index}`} className="overflow-hidden group bg-card/50 border-border/50">
-                            <div className="relative h-48 w-full overflow-hidden bg-muted">
-                                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-secondary">
-                                    <Icon icon="lucide:image" className="w-8 h-8 opacity-20" />
+                        <MatrixWrapper key={`part-${index}`} className="rounded-xl h-full">
+                            <Card className="overflow-hidden group bg-card/50 border-border/50 h-full">
+                                <div className="relative h-48 w-full overflow-hidden bg-muted">
+                                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-secondary">
+                                        <Icon icon="lucide:image" className="w-8 h-8 opacity-20" />
+                                    </div>
+                                    <Image
+                                        src={item.img}
+                                        alt="Participation"
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    />
                                 </div>
-                                <Image
-                                    src={item.img}
-                                    alt="Participation"
-                                    fill
-                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
-                            </div>
-                            <CardContent className="p-4">
-                                <p className="text-sm font-medium leading-relaxed">
-                                    {item.description}
-                                </p>
-                            </CardContent>
-                        </Card>
+                                <CardContent className="p-4">
+                                    <p className="text-sm font-medium leading-relaxed">
+                                        {item.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </MatrixWrapper>
                     ))}
                 </div>
             </section>
@@ -171,21 +179,23 @@ export default function AboutPage() {
 
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     {CERTIFICATIONS_DATA("").map((cert, index) => (
-                        <Card key={index} className="bg-card/50 border-border/50 flex flex-col h-full hover:shadow-md transition-all">
-                            <div className="relative aspect-video w-full overflow-hidden rounded-t-xl bg-muted">
-                                <Image
-                                    src={cert.img}
-                                    alt={cert.description}
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <CardContent className="p-4 flex-1">
-                                <p className="text-sm font-medium text-center">
-                                    {cert.description}
-                                </p>
-                            </CardContent>
-                        </Card>
+                        <MatrixWrapper key={index} className="rounded-xl h-full">
+                            <Card className="bg-card/50 border-border/50 flex flex-col h-full hover:shadow-md transition-all">
+                                <div className="relative aspect-video w-full overflow-hidden rounded-t-xl bg-muted">
+                                    <Image
+                                        src={cert.img}
+                                        alt={cert.description}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <CardContent className="p-4 flex-1">
+                                    <p className="text-sm font-medium text-center">
+                                        {cert.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </MatrixWrapper>
                     ))}
                 </div>
             </section>

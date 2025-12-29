@@ -5,6 +5,7 @@ import { HERO_DATA } from "@/lib/data"
 
 import Image from "next/image"
 import { Icon } from "@iconify/react";
+import { DecipherText } from "@/components/ui/decipher-text";
 
 export function HeroSection() {
     const { name, description, images } = HERO_DATA;
@@ -43,22 +44,14 @@ export function HeroSection() {
     return (
         <section className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12" aria-label="Introduction">
             <div className="flex-1 flex flex-col gap-4">
-                <motion.div
-                    className="overflow-hidden flex flex-wrap"
-                    variants={container}
-                    initial="hidden"
-                    animate="visible"
-                >
-                    {letters.map((letter, index) => (
-                        <motion.h1
-                            variants={child}
-                            key={index}
-                            className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground inline-block"
-                        >
-                            {letter === " " ? "\u00A0" : letter}
-                        </motion.h1>
-                    ))}
-                </motion.div>
+                <div className="overflow-hidden mb-4">
+                    <DecipherText
+                        text={`Hey, I'm ${name}.`}
+                        className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground"
+                        animate={true}
+                        speed={70}
+                    />
+                </div>
                 <motion.p
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}

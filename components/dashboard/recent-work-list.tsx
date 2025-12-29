@@ -3,6 +3,7 @@
 import { Icon } from "@iconify/react"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
 
 // Using loose types here for internal component usage or import strict types if I stick to lib/types
 import { ProjectData } from "@/lib/types"
@@ -15,7 +16,7 @@ const RECENT_WORKS = [
 
 export function RecentWorkList() {
     return (
-        <div className="flex flex-col gap-4 rounded-2xl border border-border/50 bg-card/30 p-6 backdrop-blur-md">
+        <MatrixWrapper className="flex flex-col gap-4 rounded-2xl border border-border/50 bg-card/30 p-6 backdrop-blur-md">
             <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold">Recent Projects</h3>
                 <Link href="/projects" className="text-xs text-primary hover:underline">View All</Link>
@@ -43,8 +44,8 @@ export function RecentWorkList() {
                         <div className="flex items-center gap-4">
                             <span className="text-xs text-muted-foreground hidden md:block">{work.date}</span>
                             <span className={`text-xs px-2 py-1 rounded-full ${work.status === 'Live' ? 'bg-emerald-500/10 text-emerald-500' :
-                                    work.status === 'In Progress' ? 'bg-amber-500/10 text-amber-500' :
-                                        'bg-blue-500/10 text-blue-500'
+                                work.status === 'In Progress' ? 'bg-amber-500/10 text-amber-500' :
+                                    'bg-blue-500/10 text-blue-500'
                                 }`}>
                                 {work.status}
                             </span>
@@ -52,6 +53,7 @@ export function RecentWorkList() {
                     </motion.div>
                 ))}
             </div>
-        </div>
+        </MatrixWrapper>
+
     )
 }
