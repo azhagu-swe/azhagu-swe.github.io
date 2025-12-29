@@ -22,7 +22,7 @@ export default async function ProjectsPage() {
     }))
 
     return (
-        <div className="container py-10">
+        <div className="container pt-10 pb-0 max-w-5xl mx-auto">
             <div className="flex flex-col items-start gap-4 mb-10">
                 <h1 className="inline-block font-heading text-4xl tracking-tight lg:text-5xl">
                     {PAGES_DATA.projects.title}

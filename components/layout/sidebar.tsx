@@ -75,8 +75,14 @@ export function Sidebar({ className, isOpen, isMobile, onClose }: SidebarProps) 
 
             <div className={cn("p-6 flex items-center", isCollapsed ? "justify-center" : "justify-start")}>
                 <div className="flex items-center gap-2 font-bold text-2xl">
-                    <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center shrink-0">
-                        <Icon icon="lucide:zap" className="w-5 h-5 text-primary-foreground" />
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 overflow-hidden relative">
+                        {mounted && (
+                            <img
+                                src={'/favicon/dark/android-chrome-192x192.png'}
+                                alt="Logo"
+                                className="w-full h-full object-cover"
+                            />
+                        )}
                     </div>
                     <AnimatePresence>
                         {!isCollapsed && (
@@ -93,43 +99,91 @@ export function Sidebar({ className, isOpen, isMobile, onClose }: SidebarProps) 
                 </div>
             </div>
 
-            <div className="flex-1 px-4 py-2 flex flex-col gap-2 overflow-y-auto overflow-x-hidden scrollbar-thin">
-                {siteConfig.mainNav.map((item) => {
-                    const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(`${item.href}/`))
-                    return (
-                        <Link key={item.href} href={item.href}>
-                            <div
-                                className={cn(
-                                    "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group relative overflow-hidden",
-                                    isActive ? "text-primary-foreground shadow-md" : "hover:bg-accent hover:text-accent-foreground text-muted-foreground",
-                                    isCollapsed && "justify-center px-2"
-                                )}
-                                title={isCollapsed ? item.title : undefined}
-                            >
-                                <Icon icon={item.icon} className={cn("w-5 h-5 shrink-0 z-10", isActive ? "animate-pulse" : "")} />
-                                {!isCollapsed && (
-                                    <motion.span
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
-                                        className="font-medium whitespace-nowrap overflow-hidden z-10"
-                                    >
-                                        {item.title}
-                                    </motion.span>
-                                )}
-                                {isActive && (
-                                    <motion.div
-                                        layoutId="sidebar-active"
-                                        className="absolute inset-0 bg-primary z-0"
-                                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                    >
-                                        <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-t from-white/20 to-transparent" />
-                                    </motion.div>
-                                )}
-                            </div>
-                        </Link>
-                    )
-                })}
+            <div className="flex-1 px-4 py-2 flex flex-col justify-between overflow-y-auto overflow-x-hidden scrollbar-thin">
+                {/* Top Section: Portfolio */}
+                <div className="flex flex-col gap-2">
+                    {siteConfig.sidebarNav.portfolio.map((item) => {
+                        const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(`${item.href}/`))
+                        return (
+                            <Link key={item.href} href={item.href}>
+                                <div
+                                    className={cn(
+                                        "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group relative overflow-hidden",
+                                        isActive ? "text-primary-foreground shadow-md" : "hover:bg-accent hover:text-accent-foreground text-muted-foreground",
+                                        isCollapsed && "justify-center px-2"
+                                    )}
+                                    title={isCollapsed ? item.title : undefined}
+                                >
+                                    <Icon icon={item.icon} className={cn("w-5 h-5 shrink-0 z-10", isActive ? "animate-pulse" : "")} />
+                                    {!isCollapsed && (
+                                        <motion.span
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            className="font-medium whitespace-nowrap overflow-hidden z-10"
+                                        >
+                                            {item.title}
+                                        </motion.span>
+                                    )}
+                                    {isActive && (
+                                        <motion.div
+                                            layoutId="sidebar-active"
+                                            className="absolute inset-0 bg-primary z-0"
+                                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                        >
+                                            <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-t from-white/20 to-transparent" />
+                                        </motion.div>
+                                    )}
+                                </div>
+                            </Link>
+                        )
+                    })}
+                </div>
+
+                {/* Bottom Section: Content */}
+                <div className="flex flex-col gap-2 pt-4 border-t border-border/50 mt-4">
+                    {!isCollapsed && (
+                        <h4 className="px-4 text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-1">
+                            Content
+                        </h4>
+                    )}
+                    {siteConfig.sidebarNav.content.map((item) => {
+                        const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(`${item.href}/`))
+                        return (
+                            <Link key={item.href} href={item.href}>
+                                <div
+                                    className={cn(
+                                        "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group relative overflow-hidden",
+                                        isActive ? "text-primary-foreground shadow-md" : "hover:bg-accent hover:text-accent-foreground text-muted-foreground",
+                                        isCollapsed && "justify-center px-2"
+                                    )}
+                                    title={isCollapsed ? item.title : undefined}
+                                >
+                                    <Icon icon={item.icon} className={cn("w-5 h-5 shrink-0 z-10", isActive ? "animate-pulse" : "")} />
+                                    {!isCollapsed && (
+                                        <motion.span
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            className="font-medium whitespace-nowrap overflow-hidden z-10"
+                                        >
+                                            {item.title}
+                                        </motion.span>
+                                    )}
+                                    {isActive && (
+                                        <motion.div
+                                            layoutId="sidebar-active-content" // Unique layoutId for this section
+                                            className="absolute inset-0 bg-primary z-0"
+                                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                        >
+                                            <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-t from-white/20 to-transparent" />
+                                        </motion.div>
+                                    )}
+                                </div>
+                            </Link>
+                        )
+                    })}
+                </div>
             </div>
 
             <div className={cn("p-6 border-t border-border", isCollapsed && "p-4")}>

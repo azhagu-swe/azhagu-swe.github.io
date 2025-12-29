@@ -12,13 +12,13 @@ import { HOME_DATA, TECH_ICONS, SOCIAL_LINKS } from "@/lib/data"
 
 export default function Home() {
   return (
-    <div className="container py-10 min-h-screen flex flex-col justify-center">
+    <div className="container pt-10 pb-0 min-h-screen flex flex-col justify-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <BentoGrid className="max-w-4xl mx-auto auto-rows-[minmax(100px,auto)]">
+        <BentoGrid className="max-w-5xl mx-auto auto-rows-[minmax(100px,auto)]">
 
           {/* Hero Section - 2x2 */}
           <BentoItem

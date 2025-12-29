@@ -27,7 +27,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                 {/* Main Content Area */}
                 <main
                     ref={mainRef}
-                    className="flex-1 overflow-y-auto overflow-x-hidden relative flex flex-col w-full scroll-smooth rounded-xl border border-border/50 bg-card/30 shadow-sm"
+                    className="flex-1 overflow-y-auto overflow-x-hidden relative flex flex-col w-full scroll-smooth rounded-xl border border-border/50 bg-card/30 shadow-sm gap-16"
                 >
                     <div className="sticky top-0 z-40 w-full">
                         <Navbar onToggleSidebar={toggle} isSidebarOpen={isOpen} />

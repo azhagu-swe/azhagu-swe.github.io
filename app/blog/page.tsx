@@ -13,7 +13,7 @@ export default async function BlogPage() {
     const posts = await getAllPosts("blog")
 
     return (
-        <div className="container py-10 max-w-2xl px-4 md:px-0">
+        <div className="container pt-10 pb-0 max-w-5xl px-4 md:px-0 mx-auto">
             <div className="mb-10 text-center">
                 <h1 className="font-heading text-4xl tracking-tight lg:text-5xl mb-4">
                     {PAGES_DATA.blog.title}

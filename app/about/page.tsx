@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
     return (
-        <div className="container py-10 max-w-4xl mx-auto space-y-16">
+        <div className="container pt-10 pb-0 max-w-5xl mx-auto space-y-16">
             {/* Header Section */}
             <section className="space-y-4">
                 <h1 className="font-heading text-4xl font-bold tracking-tight lg:text-5xl">
