@@ -101,8 +101,11 @@ export function HeroSection() {
                     {/* Matrix Scanline Effect */}
                     <div className="absolute inset-x-0 top-0 h-full w-full bg-gradient-to-b from-transparent via-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 animate-scan" style={{ backgroundSize: '100% 200%' }} />
 
-                    {/* Horizontal Scan Lines Overlay */}
-                    <div className="absolute inset-0 bg-[url('/scanlines.png')] opacity-10 pointer-events-none" style={{ backgroundSize: '4px 4px' }} />
+                    {/* Horizontal Scan Lines Overlay (CSS) */}
+                    <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
+                        backgroundImage: 'linear-gradient(transparent 50%, rgba(0, 0, 0, 0.5) 50%)',
+                        backgroundSize: '100% 4px'
+                    }} />
 
                     {/* Glitch Overlay Text (Optional creative touch) */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

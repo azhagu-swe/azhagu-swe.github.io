@@ -4,7 +4,7 @@ import Link from "next/link"
 import { Icon } from "@iconify/react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
@@ -39,6 +39,9 @@ export function Navbar({ onToggleSidebar, isSidebarOpen }: NavbarProps) {
                                 </div> */}
                                     Portfolio
                                 </SheetTitle>
+                                <SheetDescription className="text-xs text-muted-foreground">
+                                    Navigate through the portfolio sections.
+                                </SheetDescription>
                             </SheetHeader>
                             <div className="flex flex-col gap-2 mt-8 px-1">
                                 {siteConfig.mainNav.map((item) => {
