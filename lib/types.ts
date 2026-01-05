@@ -1,14 +1,7 @@
+import { Frontmatter as ZodFrontmatter } from "./schemas"
+
 // Content Types
-export interface Frontmatter {
-    title: string
-    date: string
-    description: string
-    image?: string
-    tags?: string[]
-    published?: boolean
-    demoUrl?: string
-    repoUrl?: string
-}
+export type Frontmatter = ZodFrontmatter
 
 export interface Post {
     slug: string

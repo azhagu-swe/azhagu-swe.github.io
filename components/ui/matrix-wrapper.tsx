@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { cn } from "@/lib/utils"
+import { useMatrixSound } from "@/hooks/use-matrix-sound"
 
 interface MatrixWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode
@@ -10,13 +11,24 @@ interface MatrixWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function MatrixWrapper({ children, className, disableHover = false, ...props }: MatrixWrapperProps) {
+    const { playSound } = useMatrixSound()
+    const { onMouseEnter, onClick, ...rest } = props
+
     return (
         <div
             className={cn(
                 "relative overflow-hidden group transition-all duration-300",
                 className
             )}
-            {...props}
+            onMouseEnter={(e) => {
+                if (!disableHover) playSound("hover")
+                onMouseEnter?.(e)
+            }}
+            onClick={(e) => {
+                playSound("click")
+                onClick?.(e)
+            }}
+            {...rest}
         >
             {/* Content */}
             <div className="relative z-10 transition-transform duration-300 group-hover:translate-x-[1px] group-hover:-translate-y-[1px]">

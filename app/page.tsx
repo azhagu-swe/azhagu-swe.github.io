@@ -4,14 +4,11 @@ import { HeroSection } from "@/components/hero-section"
 import { StatsCard } from "@/components/dashboard/stats-card"
 import { ActivityGraph } from "@/components/dashboard/activity-graph"
 import { RecentWorkList } from "@/components/dashboard/recent-work-list"
-import { SKILLS_DATA, CERTIFICATIONS_DATA } from "@/lib/data"
+import { STATS_DATA } from "@/lib/data"
 
 export default function Home() {
-  // Derived Stats
-  const yearsExp = 3 // Could derive from EXPERIENCE_DATA dates or hardcode as per data
-  const projectsCount = 5 // Placeholder
-  const skillsCount = SKILLS_DATA.reduce((acc, cat) => acc + cat.skills.split(',').length, 0)
-  const certsCount = CERTIFICATIONS_DATA().length
+  // Derived Stats from Centralized Data
+  const { yearsExp, projectsCount, skillsCount, certsCount } = STATS_DATA
 
   return (
     <div className="container max-w-7xl mx-auto pt-20 pb-24 px-4 flex flex-col gap-8 min-h-screen">

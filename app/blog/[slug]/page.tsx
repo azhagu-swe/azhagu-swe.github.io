@@ -21,11 +21,12 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PostPageProps) {
     const { slug } = await params
-    const { frontmatter } = await getPostBySlug("blog", slug)
+    const post = await getPostBySlug("blog", slug)
 
-    if (!frontmatter) {
+    if (!post) {
         return {}
     }
+    const { frontmatter } = post
 
     return {
         title: frontmatter.title,
@@ -35,11 +36,13 @@ export async function generateMetadata({ params }: PostPageProps) {
 
 export default async function PostPage({ params }: PostPageProps) {
     const { slug } = await params
-    const { content, frontmatter, readingTime } = await getPostBySlug("blog", slug)
+    const post = await getPostBySlug("blog", slug)
 
-    if (!content) {
+    if (!post) {
         notFound()
     }
+
+    const { content, frontmatter, readingTime } = post
 
     return (
         <div className="relative min-h-screen">

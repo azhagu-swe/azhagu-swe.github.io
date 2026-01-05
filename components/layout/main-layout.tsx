@@ -4,13 +4,12 @@ import { usePathname } from "next/navigation"
 import { BottomNav } from "@/components/layout/bottom-nav"
 import { Sidebar } from "@/components/layout/sidebar"
 import { Navbar } from "@/components/layout/navbar"
-import { Footer } from "@/components/layout/footer"
 import { useSidebar } from "@/hooks/use-sidebar"
 import { ScrollToTopFab } from "@/components/ui/scroll-to-top-fab"
 import { useRef } from "react"
 import { MouseGlow } from "@/components/ui/mouse-glow"
 
-export function MainLayout({ children }: { children: React.ReactNode }) {
+export function MainLayout({ children, footer }: { children: React.ReactNode, footer: React.ReactNode }) {
     const { isOpen, toggle, setOpen, isMobile } = useSidebar()
     const pathname = usePathname()
     const mainRef = useRef<HTMLElement>(null)
@@ -38,7 +37,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                     </div>
 
                     <div className="shrink-0 z-10 relative">
-                        <Footer />
+                        {footer}
                     </div>
                 </main>
 

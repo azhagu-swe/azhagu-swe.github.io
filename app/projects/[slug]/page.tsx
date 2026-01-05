@@ -21,11 +21,12 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: ProjectPageProps) {
     const { slug } = await params
-    const { frontmatter } = await getPostBySlug("projects", slug)
+    const post = await getPostBySlug("projects", slug)
 
-    if (!frontmatter) {
+    if (!post) {
         return {}
     }
+    const { frontmatter } = post
 
     return {
         title: frontmatter.title,
@@ -35,11 +36,12 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
     const { slug } = await params
-    const { content, frontmatter } = await getPostBySlug("projects", slug)
+    const post = await getPostBySlug("projects", slug)
 
-    if (!content) {
+    if (!post) {
         notFound()
     }
+    const { content, frontmatter } = post
 
     return (
         <div className="min-h-screen bg-background text-foreground">

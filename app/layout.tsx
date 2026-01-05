@@ -6,6 +6,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { MainLayout } from "@/components/layout/main-layout";
 import { FaviconManager } from "@/components/favicon-manager";
+import { Footer } from "@/components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
@@ -35,6 +36,7 @@ export const metadata: Metadata = {
   },
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -56,7 +58,7 @@ export default function RootLayout({
           themes={["light", "dark", "matrix"]}
         >
           <FaviconManager />
-          <MainLayout>{children}</MainLayout>
+          <MainLayout footer={<Footer />}>{children}</MainLayout>
         </ThemeProvider>
       </body>
     </html>

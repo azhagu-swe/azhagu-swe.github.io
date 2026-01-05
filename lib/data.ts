@@ -311,3 +311,10 @@ export const PAGES_DATA = {
         description: "Thoughts, stories, and ideas.",
     }
 };
+
+export const STATS_DATA = {
+    yearsExp: 3,
+    projectsCount: 5,
+    skillsCount: SKILLS_DATA.reduce((acc, cat) => acc + cat.skills.split(',').length, 0),
+    certsCount: CERTIFICATIONS_DATA().length,
+};
