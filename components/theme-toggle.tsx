@@ -38,10 +38,10 @@ export function ThemeToggle() {
         >
             <div className="relative w-5 h-5 flex items-center justify-center">
                 {/* Light Mode: Sun */}
-                <Sun className={`absolute inset-0 h-full w-full transition-all duration-500 rotate-0 scale-100 ${theme === 'light' ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90 scale-0'}`} />
+                <Sun className={`absolute inset-0 h-full w-full transition-all duration-500 rotate-0 scale-100 ${theme === 'light' ? 'opacity-100 rotate-0 text-foreground' : 'opacity-0 -rotate-90 scale-0'}`} />
 
                 {/* Dark Mode: Moon */}
-                <Moon className={`absolute inset-0 h-full w-full transition-all duration-500 rotate-90 scale-0 ${theme === 'dark' ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-0'}`} />
+                <Moon className={`absolute inset-0 h-full w-full transition-all duration-500 rotate-90 scale-0 ${theme === 'dark' ? 'opacity-100 rotate-0 scale-100 text-foreground' : 'opacity-0 rotate-90 scale-0'}`} />
 
                 {/* Matrix Mode: Monitor/Code */}
                 <Icon

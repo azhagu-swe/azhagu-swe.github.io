@@ -76,7 +76,7 @@ export function Navbar({ onToggleSidebar, isSidebarOpen }: NavbarProps) {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <ThemeToggle />
+                    {/* <ThemeToggle /> Removed to avoid duplication with Sidebar */}
                 </div>
             </div>
         </header>
