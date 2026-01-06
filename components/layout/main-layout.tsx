@@ -16,6 +16,9 @@ export function MainLayout({ children, footer }: { children: React.ReactNode, fo
 
     return (
         <div className="flex h-screen overflow-hidden bg-background text-foreground transition-colors duration-300 p-2.5 gap-2.5">
+            <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-background focus:text-foreground focus:top-4 focus:left-4 rounded-md border border-primary">
+                Skip to Main Content
+            </a>
             <MouseGlow />
             {/* Desktop Sidebar (Left) */}
             <Sidebar isOpen={isOpen} isMobile={isMobile} onClose={() => setOpen(false)} className="rounded-xl shadow-sm border border-border/50" />
@@ -25,6 +28,7 @@ export function MainLayout({ children, footer }: { children: React.ReactNode, fo
 
                 {/* Main Content Area */}
                 <main
+                    id="main-content"
                     ref={mainRef}
                     className="flex-1 overflow-y-auto overflow-x-hidden relative flex flex-col w-full scroll-smooth rounded-xl border border-border/50 bg-card/30 shadow-sm gap-16"
                 >

@@ -65,7 +65,11 @@ export function Footer() {
                 </div>
 
                 <div className="mt-8 pt-8 border-t border-border/30 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground font-mono">
-                    <p>&copy; {currentYear} {siteConfig.name}. All rights reserved.</p>
+                    <p>
+                        &copy; {currentYear} {siteConfig.name}. All rights reserved.
+                        <span className="mx-2 text-border">|</span>
+                        <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+                    </p>
                     <div className="flex items-center gap-2">
                         <span>Designed & Built with ❤️</span>
                         <span className="hidden md:inline text-border">|</span>
