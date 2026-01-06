@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion"
 import { useMatrixSound } from "@/hooks/use-matrix-sound"
 import { cn } from "@/lib/utils"
 // import { useState } from "react" // Not strictly needed if using motion values directly for glare
@@ -12,6 +12,7 @@ interface MatrixCardProps extends React.ComponentProps<typeof motion.div> {
 
 export function MatrixCard({ children, className, delay = 0, ...props }: MatrixCardProps) {
     const { playSound } = useMatrixSound()
+    const shouldReduceMotion = useReducedMotion()
 
     // 3D Tilt Logic
     const x = useMotionValue(0)
@@ -21,13 +22,14 @@ export function MatrixCard({ children, className, delay = 0, ...props }: MatrixC
     const mouseX = useSpring(x, { stiffness: 500, damping: 100 })
     const mouseY = useSpring(y, { stiffness: 500, damping: 100 })
 
-    const rotateX = useTransform(mouseY, [-0.5, 0.5], ["15deg", "-15deg"])
-    const rotateY = useTransform(mouseX, [-0.5, 0.5], ["-15deg", "15deg"])
+    const rotateX = useTransform(mouseY, [-0.5, 0.5], shouldReduceMotion ? ["0deg", "0deg"] : ["15deg", "-15deg"])
+    const rotateY = useTransform(mouseX, [-0.5, 0.5], shouldReduceMotion ? ["0deg", "0deg"] : ["-15deg", "15deg"])
 
     // Glare position (maps -0.5 -> 0.5 to 0% -> 100%)
     const glareX = useTransform(mouseX, [-0.5, 0.5], [0, 100])
     const glareY = useTransform(mouseY, [-0.5, 0.5], [0, 100])
-    const glareOpacity = useTransform(mouseX, [-0.5, 0.5], [0, 0.4]) // Only show glare on interaction? or make it dependent on hover state
+    // Disable glare if reduced motion is requested
+    const glareOpacity = useTransform(mouseX, [-0.5, 0.5], shouldReduceMotion ? [0, 0] : [0, 0.4])
 
     function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
         const rect = event.currentTarget.getBoundingClientRect()

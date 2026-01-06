@@ -1,15 +1,17 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useReducedMotion } from "framer-motion"
 
 export function CRTFlicker() {
     const [mounted, setMounted] = useState(false)
+    const shouldReduceMotion = useReducedMotion()
 
     useEffect(() => {
         setMounted(true)
     }, [])
 
-    if (!mounted) return null
+    if (!mounted || shouldReduceMotion) return null
 
     return (
         <>

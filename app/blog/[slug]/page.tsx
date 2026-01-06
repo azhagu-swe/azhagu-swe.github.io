@@ -44,8 +44,27 @@ export default async function PostPage({ params }: PostPageProps) {
 
     const { content, frontmatter, readingTime } = post
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": frontmatter.title,
+        "description": frontmatter.description,
+        "datePublished": frontmatter.date,
+        "author": {
+            "@type": "Person",
+            "name": "Azhagu",
+            "url": "https://azhagu-swe.github.io"
+        },
+        "url": `https://azhagu-swe.github.io/blog/${slug}`,
+        "image": frontmatter.image ? `https://azhagu-swe.github.io${frontmatter.image}` : undefined,
+    }
+
     return (
         <div className="relative min-h-screen">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <ReadingProgress />
 
             <div className="container py-10 px-4 md:px-0 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10">

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 
 interface DecipherTextProps {
     text: string
@@ -25,11 +25,13 @@ export function DecipherText({
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true, amount: 0.5 })
     const intervalRef = useRef<NodeJS.Timeout | null>(null)
+    const preferReducedMotion = useReducedMotion()
 
     const shouldAnimate =
-        (revealOn === 'load') ||
-        (revealOn === 'inView' && isInView) ||
-        (revealOn === 'hover' && isHovered)
+        !preferReducedMotion &&
+        ((revealOn === 'load') ||
+            (revealOn === 'inView' && isInView) ||
+            (revealOn === 'hover' && isHovered))
 
     useEffect(() => {
         if (!animate || !shouldAnimate) {

@@ -24,6 +24,9 @@ function CustomLink(props: any) {
 import { TLDR, Note } from "@/components/mdx/callouts"
 import { BentoHeader } from "@/components/mdx/bento-header"
 
+import { Pre } from "@/components/mdx/pre"
+import { MDXImage } from "@/components/mdx/mdx-image"
+
 export const components = {
     h1: ({ className, ...props }: any) => (
         <h1
@@ -76,14 +79,8 @@ export const components = {
             {...props}
         />
     ),
-    img: ({
-        className,
-        alt,
-        ...props
-    }: React.ImgHTMLAttributes<HTMLImageElement>) => (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img className={cn("rounded-2xl border shadow-2xl my-8", className)} alt={alt} {...props} />
-    ),
+    img: MDXImage,
+    pre: Pre,
     hr: ({ ...props }) => <hr className="my-8 md:my-12 border-border" {...props} />,
     a: CustomLink,
     TLDR,
