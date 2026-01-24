@@ -14,7 +14,7 @@ interface BentoHeaderProps {
 
 export function BentoHeader({ title, date, readingTime, tags, description, icon, gradient }: BentoHeaderProps) {
     return (
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-card/30 backdrop-blur-xl shadow-2xl p-8 mb-10 group">
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-card/50 backdrop-blur-xl shadow-2xl p-8 mb-10 group">
             {/* Dynamic Background Gradient */}
             <div className={cn("absolute inset-0 opacity-10 blur-3xl", gradient || "bg-primary")} />
 
@@ -22,7 +22,7 @@ export function BentoHeader({ title, date, readingTime, tags, description, icon,
                 {tags && (
                     <div className="flex flex-wrap gap-2">
                         {tags.map((tag) => (
-                            <Badge key={tag} variant="secondary" className="bg-white/5 hover:bg-white/10 border-white/10 text-primary-foreground/90 backdrop-blur-md">
+                            <Badge key={tag} variant="secondary" className="bg-secondary/50 hover:bg-secondary border-border/50 text-secondary-foreground backdrop-blur-md transition-colors">
                                 {tag}
                             </Badge>
                         ))}
@@ -31,12 +31,12 @@ export function BentoHeader({ title, date, readingTime, tags, description, icon,
 
                 <div className="flex items-start gap-4">
                     {icon && (
-                        <div className="hidden md:flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 shadow-inner">
-                            <Icon icon={icon} className="h-8 w-8 text-white/90" />
+                        <div className="hidden md:flex h-16 w-16 items-center justify-center rounded-2xl bg-secondary/20 border border-border shadow-inner">
+                            <Icon icon={icon} className="h-8 w-8 text-foreground/80 my-auto" />
                         </div>
                     )}
                     <div className="flex-1 space-y-2">
-                        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/70 leading-tight">
+                        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
                             {title}
                         </h1>
                         {description && <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">{description}</p>}
@@ -44,7 +44,7 @@ export function BentoHeader({ title, date, readingTime, tags, description, icon,
                 </div>
 
                 {(date || readingTime) && (
-                    <div className="flex items-center gap-4 text-sm font-medium text-muted-foreground border-t border-white/5 pt-6 mt-2">
+                    <div className="flex items-center gap-4 text-sm font-medium text-muted-foreground border-t border-border pt-6 mt-2">
                         {date && <span>{date}</span>}
                         {date && readingTime && <span>•</span>}
                         {readingTime && (
