@@ -88,14 +88,14 @@ export function HeroSection() {
                 transition={{ duration: 0.5 }}
                 className="relative group"
             >
-                <div className="relative w-32 h-32 md:w-48 md:h-48 shrink-0 overflow-hidden rounded-full border-4 border-primary/50 shadow-2xl shadow-primary/20 transition-all duration-500 group-hover:scale-105 group-hover:shadow-primary/50 group-hover:border-primary">
+                <div className="relative w-48 h-48 md:w-80 md:h-80 shrink-0 overflow-hidden rounded-full border-4 border-primary/50 shadow-2xl shadow-primary/20 transition-all duration-500 hover:scale-105 hover:shadow-primary/50 hover:border-primary">
                     <Image
                         src={images.profile}
                         alt={name}
                         fill
                         priority
-                        className="object-cover transition-all duration-500 group-hover:opacity-80 group-hover:grayscale"
-                        sizes="(max-width: 768px) 128px, 192px"
+                        className="object-cover object-top transition-all duration-500 hover:scale-110"
+                        sizes="(max-width: 768px) 192px, 320px"
                     />
 
                     {/* Matrix Scanline Effect */}
@@ -106,16 +106,11 @@ export function HeroSection() {
                         backgroundImage: 'linear-gradient(transparent 50%, rgba(0, 0, 0, 0.5) 50%)',
                         backgroundSize: '100% 4px'
                     }} />
-
-                    {/* Glitch Overlay Text (Optional creative touch) */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <Icon icon="simple-icons:matrix" className="w-12 h-12 text-primary animate-pulse" />
-                    </div>
                 </div>
 
                 {/* Rotating Rings */}
-                <div className="absolute -inset-2 rounded-full border border-primary/20 border-t-primary/60 w-[calc(100%+16px)] h-[calc(100%+16px)] animate-[spin_4s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute -inset-4 rounded-full border border-primary/10 border-b-primary/40 w-[calc(100%+32px)] h-[calc(100%+32px)] animate-[spin_7s_linear_infinite_reverse] opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute -inset-4 rounded-full border border-primary/20 border-t-primary/60 w-[calc(100%+32px)] h-[calc(100%+32px)] animate-[spin_8s_linear_infinite] opacity-60" />
+                <div className="absolute -inset-8 rounded-full border border-primary/10 border-b-primary/40 w-[calc(100%+64px)] h-[calc(100%+64px)] animate-[spin_12s_linear_infinite_reverse] opacity-40" />
             </motion.div>
         </section>
     )
