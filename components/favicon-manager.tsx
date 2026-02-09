@@ -11,7 +11,7 @@ export function FaviconManager() {
             const link: HTMLLinkElement | null = document.querySelector("link[rel~='icon']")
             if (!link) return
 
-            const isDark = theme === 'dark' || theme === 'matrix'
+            const isDark = theme === 'dark'
             const faviconPath = isDark ? '/favicon/dark/favicon.ico' : '/favicon/light/favicon.ico'
 
             link.href = faviconPath

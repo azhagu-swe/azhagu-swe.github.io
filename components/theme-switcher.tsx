@@ -18,9 +18,8 @@ export function ThemeSwitcher() {
     }
 
     const themes = [
-        { id: 'light', icon: 'ph:sun-bold', label: 'Paper' },
-        { id: 'dark', icon: 'ph:moon-bold', label: 'OLED' },
-        { id: 'matrix', icon: 'ph:code-bold', label: 'Matrix' },
+        { id: 'light', icon: 'ph:sun-bold', label: 'Light' },
+        { id: 'dark', icon: 'ph:moon-bold', label: 'Dark' },
     ]
 
     return (

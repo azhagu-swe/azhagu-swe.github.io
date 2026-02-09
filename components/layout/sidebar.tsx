@@ -44,7 +44,6 @@ export function Sidebar({ className, isOpen, isMobile, onClose }: SidebarProps) 
         switch (theme) {
             case 'light': return 'Light Mode'
             case 'dark': return 'Dark Mode'
-            case 'matrix': return 'Matrix Mode'
             default: return 'Appearance'
         }
     }

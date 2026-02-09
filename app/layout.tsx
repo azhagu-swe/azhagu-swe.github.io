@@ -55,7 +55,7 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-          themes={["light", "dark", "matrix"]}
+          themes={["light", "dark"]}
         >
           <FaviconManager />
           <MainLayout footer={<Footer />}>{children}</MainLayout>

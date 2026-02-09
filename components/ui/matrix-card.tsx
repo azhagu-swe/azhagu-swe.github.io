@@ -71,7 +71,7 @@ export function MatrixCard({ children, className, delay = 0, ...props }: MatrixC
             onMouseLeave={handleMouseLeave}
             className={cn(
                 "relative rounded-xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden transition-colors perspective-1000 transform-style-3d group",
-                "data-[theme=matrix]:border-green-500/30 data-[theme=matrix]:bg-black/80",
+                "data-[theme=dark]:border-green-500/30 data-[theme=dark]:bg-black/80",
                 className
             )}
             {...props}
@@ -85,8 +85,8 @@ export function MatrixCard({ children, className, delay = 0, ...props }: MatrixC
                 className="absolute inset-0 z-20 pointer-events-none mix-blend-overlay transition-opacity duration-300"
             />
 
-            {/* Scanline overlay for Matrix theme */}
-            <div className="absolute inset-0 pointer-events-none opacity-0 data-[theme=matrix]:opacity-10 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-0 bg-[length:100%_2px,3px_100%]" />
+            {/* Scanline overlay for Dark theme */}
+            <div className="absolute inset-0 pointer-events-none opacity-0 data-[theme=dark]:opacity-10 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-0 bg-[length:100%_2px,3px_100%]" />
 
             <div className="relative z-10 w-full h-full">
                 {children}

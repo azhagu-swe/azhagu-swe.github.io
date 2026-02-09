@@ -25,7 +25,7 @@ export function useMatrixSound() {
     }, [])
 
     const playSound = useCallback((type: "hover" | "click" | "ambient" = "hover") => {
-        if (theme !== "matrix" || !audioContextRef.current) return
+        if (theme !== "dark" || !audioContextRef.current) return
 
         const ctx = audioContextRef.current
         if (ctx.state === 'suspended') {

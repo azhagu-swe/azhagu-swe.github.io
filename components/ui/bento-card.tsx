@@ -36,7 +36,7 @@ export function BentoCard({ post, className, delay = 0, basePath }: BentoCardPro
                     {/* Placeholder for Video/Image */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent group-hover:scale-105 transition-transform duration-700" />
 
-                    {/* Matrix Digital Rain Placeholder Overlay - Only visible in Matrix/Dark modes roughly */}
+                    {/* Digital Grid Placeholder Overlay */}
                     <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(0deg,transparent_24%,hsla(var(--primary),0.1)_25%,hsla(var(--primary),0.1)_26%,transparent_27%,transparent_74%,hsla(var(--primary),0.1)_75%,hsla(var(--primary),0.1)_76%,transparent_77%,transparent),linear-gradient(90deg,transparent_24%,hsla(var(--primary),0.1)_25%,hsla(var(--primary),0.1)_26%,transparent_27%,transparent_74%,hsla(var(--primary),0.1)_75%,hsla(var(--primary),0.1)_76%,transparent_77%,transparent)] bg-[length:30px_30px]" />
 
                     {/* Code Snippet Overlay (if code heavy) */}
@@ -49,7 +49,7 @@ export function BentoCard({ post, className, delay = 0, basePath }: BentoCardPro
                             </div>
                             <p><span className="text-secondary-foreground">export</span> <span className="text-primary/70">default</span> <span className="text-primary">function</span> <span className="text-foreground">{post.frontmatter.title.split(" ")[0]}</span>() {"{"}</p>
                             <p className="pl-4"><span className="text-secondary-foreground">return</span> (</p>
-                            <p className="pl-8 text-primary/80">"Matrix"</p>
+                            <p className="pl-8 text-primary/80">"Hello World"</p>
                             <p className="pl-4">)</p>
                             <p>{"}"}</p>
                         </div>

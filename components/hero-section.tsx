@@ -98,7 +98,7 @@ export function HeroSection() {
                         sizes="(max-width: 768px) 192px, 320px"
                     />
 
-                    {/* Matrix Scanline Effect */}
+                    {/* Scanline Effect */}
                     <div className="absolute inset-x-0 top-0 h-full w-full bg-gradient-to-b from-transparent via-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 animate-scan" style={{ backgroundSize: '100% 200%' }} />
 
                     {/* Horizontal Scan Lines Overlay (CSS) */}

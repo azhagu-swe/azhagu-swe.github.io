@@ -25,7 +25,6 @@ export function ThemeToggle() {
 
     const cycleTheme = () => {
         if (theme === 'light') setTheme('dark')
-        else if (theme === 'dark') setTheme('matrix')
         else setTheme('light')
     }
 
@@ -42,12 +41,6 @@ export function ThemeToggle() {
 
                 {/* Dark Mode: Moon */}
                 <Moon className={`absolute inset-0 h-full w-full transition-all duration-500 rotate-90 scale-0 ${theme === 'dark' ? 'opacity-100 rotate-0 scale-100 text-foreground' : 'opacity-0 rotate-90 scale-0'}`} />
-
-                {/* Matrix Mode: Monitor/Code */}
-                <Icon
-                    icon="lucide:monitor"
-                    className={`absolute inset-0 h-full w-full transition-all duration-500 rotate-90 scale-0 ${theme === 'matrix' ? 'opacity-100 rotate-0 scale-100 text-primary' : 'opacity-0 rotate-90 scale-0'}`}
-                />
             </div>
             <span className="sr-only">Toggle theme</span>
         </Button>
