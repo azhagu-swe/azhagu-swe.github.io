@@ -276,4 +276,162 @@
   [data-theme="dark"] .trust-badge {
     @apply text-yellow-400;
   }
+
+  /* ========================================================================
+     LUXURY MOTION SYSTEM
+     Physics-based animations for premium feel
+     ======================================================================== */
+
+  /* Luxury Skeleton Shimmer */
+  @keyframes luxury-shimmer {
+    from {
+      background-position: -200% 0;
+    }
+
+    to {
+      background-position: 200% 0;
+    }
+  }
+
+  .skeleton-shimmer {
+    background: linear-gradient(90deg,
+        hsl(var(--muted)) 0%,
+        hsl(var(--muted-foreground) / 0.15) 50%,
+        hsl(var(--muted)) 100%);
+    background-size: 200% 100%;
+    animation: luxury-shimmer 1.5s ease infinite;
+  }
+
+  /* Processing Pulse - Backend computation indicator */
+  @keyframes processing-pulse {
+
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4);
+    }
+
+    50% {
+      box-shadow: 0 0 20px 10px hsl(var(--primary) / 0.1);
+    }
+  }
+
+  .processing-pulse {
+    animation: processing-pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  /* High-Speed Line - Progress indicator */
+  @keyframes speed-line {
+    0% {
+      transform: translateX(-100%);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(300%);
+      opacity: 0;
+    }
+  }
+
+  .speed-line {
+    animation: speed-line 1s cubic-bezier(0.32, 0.72, 0, 1) infinite;
+  }
+
+  /* Luxury Transition - Weighted Inertia */
+  .luxury-transition {
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Ghost Hover Effect - Scale + Opacity "Lean In" */
+  .ghost-hover {
+    transition: transform 0.2s cubic-bezier(0.32, 0.72, 0, 1),
+      opacity 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .ghost-hover:hover {
+    transform: scale(1.02);
+    opacity: 0.95;
+  }
+
+  .ghost-hover:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+
+  /* CTA Lean-In Effect */
+  .cta-lean-in {
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .cta-lean-in:hover {
+    transform: scale(1.03) translateY(-2px);
+    box-shadow: 0 10px 40px -10px hsl(var(--primary) / 0.3);
+  }
+
+  .cta-lean-in:active {
+    transform: scale(0.97);
+  }
+
+  /* Glow Hover - Subtle luminance on hover */
+  .glow-hover {
+    transition: box-shadow 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .glow-hover:hover {
+    box-shadow: 0 0 30px 5px hsl(var(--primary) / 0.15);
+  }
+
+  /* Stagger Reveal - For child animations */
+  .stagger-reveal>* {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: stagger-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .stagger-reveal>*:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .stagger-reveal>*:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .stagger-reveal>*:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+
+  .stagger-reveal>*:nth-child(4) {
+    animation-delay: 0.2s;
+  }
+
+  .stagger-reveal>*:nth-child(5) {
+    animation-delay: 0.25s;
+  }
+
+  .stagger-reveal>*:nth-child(6) {
+    animation-delay: 0.3s;
+  }
+
+  @keyframes stagger-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Progressive Image Load */
+  .progressive-load {
+    transition: filter 0.35s cubic-bezier(0.25, 0.1, 0.25, 1),
+      opacity 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .progressive-load.loading {
+    opacity: 0.3;
+    filter: blur(4px);
+  }
+
+  .progressive-load.loaded {
+    opacity: 1;
+    filter: blur(0);
+  }
 }
