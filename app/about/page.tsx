@@ -13,6 +13,7 @@ import { Metadata } from "next"
 import Image from "next/image"
 import { DecipherText } from "@/components/ui/decipher-text"
 import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
+import { GitHubStats } from "@/components/github-stats"
 
 export const metadata: Metadata = {
     title: "About | Alagappan P",
@@ -108,6 +109,17 @@ export default function AboutPage() {
                         </MatrixWrapper>
                     ))}
                 </div>
+            </section>
+
+            <Separator />
+
+            {/* GitHub Activity - Trust Signal */}
+            <section className="space-y-8">
+                <div className="flex items-center gap-2">
+                    <Icon icon="lucide:git-branch" className="w-6 h-6 text-primary" />
+                    <h2 className="text-2xl font-bold tracking-tight">Open Source Activity</h2>
+                </div>
+                <GitHubStats username="azhagu-swe" />
             </section>
 
             <Separator />
