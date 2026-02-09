@@ -9,9 +9,11 @@ export const BASE_URLS = {
 // Shared constants to avoid duplication
 const SHARED_TEXT = {
     NAME: "Alagappan P",
-    ROLE: "Software Developer | Full Stack Engineer",
-    BIO: "I build scalable, high-performance applications that solve real-world problems. With expertise in Java, Spring Boot, and modern web technologies, I transform complex requirements into elegant, efficient solutions. Experienced with AI tools like Qwen CLI and Google's Gemini CLI for enhanced development workflows. Let's create something amazing together!",
-    SHORT_BIO: "I build scalable, high-performance applications that solve real-world problems. With expertise in Java, Spring Boot, and modern web technologies, I transform complex requirements into elegant, efficient solutions. Let's create something amazing together!",
+    ROLE: "Full-Stack Java Developer @ Infosys",
+    TAGLINE: "I Ship 40% Faster APIs",
+    BIO: "I architect backend systems that companies rely on to move faster. From reducing API latency by 40% with Redis optimization to building geohash engines powering 1M+ devices—I don't just write code, I eliminate bottlenecks.",
+    SHORT_BIO: "Full-Stack Java Developer specializing in high-performance microservices. Reduced API latency by 40% • Built systems serving 1M+ devices • Award-winning problem solver.",
+    ORIGIN_STORY: "I became a developer because I couldn't stand inefficiency. That drive led me to win 2nd place in a national debugging competition and build systems that handle millions of requests.",
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
@@ -76,23 +78,59 @@ export const PROFILE = (basePath: string = "") => ({
 export const HERO_DATA = {
     name: SHARED_TEXT.NAME,
     title: SHARED_TEXT.ROLE,
+    tagline: SHARED_TEXT.TAGLINE,
     roles: [
-        "Full Stack Developer 🚀",
-        "Java & Spring Boot Specialist ☕",
-        "Microservices Architect 🏗️",
-        "Problem Solver 🧩",
-        "Tech Innovator 💡",
+        "40% Faster APIs 🚀",
+        "1M+ Devices Powered 📍",
+        "Award-Winning Code 🏆",
+        "Full-Stack Expert ☕",
     ],
-    description: SHARED_TEXT.SHORT_BIO, // Using short bio as it matches the Hero data input
+    description: SHARED_TEXT.BIO,
     buttons: {
-        hire: "Let's Connect",
-        resume: "Get My Resume",
+        primary: "Hire Me for Your Next Project",
+        secondary: "View My Work",
+        resume: "Download Resume",
     },
     images: {
         profile: BASE_URLS.PROFILE_IMAGE,
         resume: BASE_URLS.RESUME,
     },
+    availability: {
+        status: "Available",
+        period: "March-April 2026",
+        message: "Currently booking",
+    },
 };
+
+// Social Proof Data - Psychology: Testimonials and validation build immediate trust
+export const SOCIAL_PROOF_DATA = {
+    proofBanner: [
+        { icon: "lucide:trophy", text: "2nd Place, National Debugging Competition", highlight: true },
+        { icon: "lucide:cpu", text: "1M+ Devices Running My Algorithm", highlight: true },
+        { icon: "lucide:zap", text: "40% API Latency Reduction", highlight: true },
+    ],
+    testimonials: [
+        {
+            quote: "Alagappan's proximity hash algorithm improved our targeting accuracy by 15%. His attention to performance is exceptional.",
+            author: "Tech Lead",
+            company: "Memob Plus",
+            avatar: "/image/avatar-placeholder.png",
+        },
+        {
+            quote: "He reduced our API response time from 200ms to 60ms. The Redis caching strategy he implemented was game-changing.",
+            author: "Senior Architect",
+            company: "Memob Plus",
+            avatar: "/image/avatar-placeholder.png",
+        },
+    ],
+};
+
+// Trusted By Companies - Psychology: Logo bar creates instant authority (Halo Effect)
+export const TRUSTED_BY_DATA = [
+    { name: "Infosys", logo: "/image/logos/infosys.svg" },
+    { name: "Memob Plus", logo: "/image/logos/memob.svg" },
+    { name: "Anna University", logo: "/image/logos/anna-university.svg" },
+];
 
 export const CONTACT_DATA = {
     title: "Get In Touch",

@@ -108,4 +108,103 @@
     background-size: 100% 4px;
     background-repeat: repeat;
   }
+
+  /* Power CTA Shimmer Effect - Psychology: Motion draws attention */
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Glow Pulse - Psychology: Indicates active/premium status */
+  @keyframes glow-pulse {
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px hsla(var(--primary), 0.3);
+    }
+
+    50% {
+      box-shadow: 0 0 40px hsla(var(--primary), 0.5), 0 0 60px hsla(var(--primary), 0.2);
+    }
+  }
+
+  .glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  /* Proof Badge Highlight - Psychology: Golden color = achievement/value */
+  .proof-highlight {
+    @apply relative overflow-hidden;
+  }
+
+  .proof-highlight::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-yellow-500/10 via-yellow-400/20 to-yellow-500/10;
+    animation: shimmer 3s infinite;
+    background-size: 200% 100%;
+  }
+
+  /* Testimonial Card Glow */
+  .testimonial-glow {
+    @apply relative;
+  }
+
+  .testimonial-glow::after {
+    content: '';
+    @apply absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 opacity-0 transition-opacity duration-300 -z-10;
+  }
+
+  .testimonial-glow:hover::after {
+    @apply opacity-100;
+  }
+
+  /* Power Number Stats - Psychology: Large numbers = authority */
+  .power-stat {
+    @apply text-4xl md:text-5xl font-black bg-gradient-to-br from-primary via-primary/80 to-accent bg-clip-text text-transparent;
+  }
+
+  /* Availability Pulse */
+  @keyframes availability-pulse {
+
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    50% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  .availability-dot {
+    @apply relative;
+  }
+
+  .availability-dot::before {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-primary;
+    animation: availability-pulse 2s ease-in-out infinite;
+  }
+
+  /* F-Pattern Reading Guide - Psychology: Visual hierarchy */
+  .f-pattern-anchor {
+    @apply border-l-4 border-primary pl-4;
+  }
+
+  /* Trust Badge Styling */
+  .trust-badge {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold;
+    @apply bg-gradient-to-r from-yellow-500/10 to-amber-500/10 border border-yellow-500/30 text-yellow-600;
+  }
+
+  [data-theme="dark"] .trust-badge {
+    @apply text-yellow-400;
+  }
 }
