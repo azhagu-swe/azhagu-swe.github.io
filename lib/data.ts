@@ -97,8 +97,8 @@ export const HERO_DATA = {
     },
     availability: {
         status: "Available",
-        period: "March-April 2026",
-        message: "Currently booking",
+        period: "Weekdays 6-9 AM & 6-9 PM • Weekends 9 AM-9 PM",
+        message: "Open for freelance projects",
     },
 };
 
