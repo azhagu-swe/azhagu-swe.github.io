@@ -65,7 +65,7 @@ export function AchievementHighlights() {
         },
         {
             stat: "#2",
-            label: "National Ranking",
+            label: "National College",
             description: "Debugging competition",
             icon: "lucide:trophy",
         },

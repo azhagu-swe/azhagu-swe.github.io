@@ -43,9 +43,19 @@ export default function ContactPage() {
                         <p className="text-lg text-muted-foreground leading-relaxed">
                             I'm currently available for freelance consulting, high-impact projects, or full-time roles at companies that value performance engineering.
                         </p>
-                        <p className="text-sm text-muted-foreground mt-3 italic">
-                            Response time: Within 24 hours
-                        </p>
+
+                        {/* Response Time Badge - Psychology: Reduces anxiety, builds trust */}
+                        <div className="flex items-center gap-3 mt-4">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500/10 to-green-500/10 border border-emerald-500/30">
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                </span>
+                                <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                                    ⚡ Usually responds within 24 hours
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
                     {/* How We'll Work Together - Psychology: Consultant framing */}
