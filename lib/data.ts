@@ -117,7 +117,7 @@ export const SOCIAL_PROOF_DATA = {
         },
         {
             quote: "He reduced our API response time from 200ms to 60ms. The Redis caching strategy he implemented was game-changing.",
-            author: "Senior Architect",
+            author: "Senior Software Engineer",
             company: "Memob Plus",
             avatar: "/image/avatar-placeholder.png",
         },
