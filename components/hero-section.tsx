@@ -107,6 +107,7 @@ export function HeroSection() {
                         <motion.a
                             href="/pdf/azhagu-resume.pdf"
                             target="_blank"
+                            rel="noopener noreferrer"
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.8, duration: 0.5 }}

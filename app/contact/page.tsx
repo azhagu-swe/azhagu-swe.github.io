@@ -1,12 +1,11 @@
 import { CONTACT_DATA, SOCIAL_LINKS, HERO_DATA } from "@/lib/data"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
 import { Icon } from "@iconify/react"
 import { Metadata } from "next"
 import Link from "next/link"
 import { DecipherText } from "@/components/ui/decipher-text"
 import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
-import { EmailButton } from "@/components/email-button"
+import { ContactForm } from "@/components/contact-form"
 
 export const metadata: Metadata = {
     title: "Contact | Alagappan P",
@@ -123,33 +122,7 @@ export default function ContactPage() {
                             </CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <form className="space-y-4">
-                                <div className="space-y-2">
-                                    <label htmlFor="name" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                                        {CONTACT_DATA.form.nameLabel}
-                                    </label>
-                                    <Input id="name" placeholder="John Doe" required name="name" />
-                                </div>
-                                <div className="space-y-2">
-                                    <label htmlFor="email" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                                        {CONTACT_DATA.form.emailLabel}
-                                    </label>
-                                    <Input id="email" type="email" placeholder="john@example.com" required name="email" />
-                                </div>
-                                <div className="space-y-2">
-                                    <label htmlFor="message" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                                        Tell me about your project
-                                    </label>
-                                    <textarea
-                                        id="message"
-                                        className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                        placeholder="I'm building a high-traffic API and need help with..."
-                                        required
-                                        name="message"
-                                    />
-                                </div>
-                                <EmailButton />
-                            </form>
+                            <ContactForm />
                         </CardContent>
                     </Card>
                 </MatrixWrapper>

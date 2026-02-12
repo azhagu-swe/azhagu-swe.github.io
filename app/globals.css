@@ -63,15 +63,15 @@
   }
 
   .prose pre {
-    @apply bg-neutral-900 border border-white/10 rounded-xl p-6 overflow-x-auto my-8 relative shadow-2xl;
+    @apply bg-secondary border border-border/30 rounded-xl p-6 overflow-x-auto my-8 relative shadow-2xl;
   }
 
   .prose code {
-    @apply bg-neutral-800/50 px-1.5 py-0.5 rounded-md text-sm font-mono text-emerald-400;
+    @apply bg-secondary/80 px-1.5 py-0.5 rounded-md text-sm font-mono text-primary;
   }
 
   .prose pre code {
-    @apply bg-transparent p-0 text-neutral-200 block text-sm leading-relaxed;
+    @apply bg-transparent p-0 text-foreground/90 block text-sm leading-relaxed;
   }
 
   /* Terminal Header Simulation */

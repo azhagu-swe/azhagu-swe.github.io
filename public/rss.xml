@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alagappan P | Full-Stack Developer</title>
+    <link>https://azhagu-swe.github.io</link>
+    <description>Full-Stack Java Developer specializing in high-performance microservices.</description>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Feb 2026 16:37:36 GMT</lastBuildDate>
+    <atom:link href="https://azhagu-swe.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title><![CDATA[Hello World]]></title>
+      <link>https://azhagu-swe.github.io/blog/hello-world</link>
+      <guid>https://azhagu-swe.github.io/blog/hello-world</guid>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[My first blog post using Next.js and MDX.]]></description>
+    </item>
+  </channel>
+</rss>

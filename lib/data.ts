@@ -2,7 +2,7 @@ import { SocialLink, ExperienceRole, SkillCategory, Certification, Achievement, 
 
 export const BASE_URLS = {
     PORTFOLIO: "https://azhagu-swe.github.io",
-    PROFILE_IMAGE: "/image/profile.png",
+    PROFILE_IMAGE: "/image/profile.webp",
     RESUME: "/pdf/azhagu-resume.pdf",
 };
 
@@ -175,19 +175,19 @@ export const SKILLS_DATA: SkillCategory[] = [
 export const CERTIFICATIONS_DATA = (basePath: string = ""): Certification[] => [
     {
         description: "Full Stack Java Development - Simplilearn, 2022",
-        img: `${basePath}/image/Java-Full-Stack-skillup.png`,
+        img: `${basePath}/image/Java-Full-Stack-skillup.webp`,
     },
     {
         description: "Java Certification Course - Simplilearn, 2022",
-        img: `${basePath}/image/java-certificate.jpg`,
+        img: `${basePath}/image/java-certificate.webp`,
     },
     {
         description: "ChatGPT Advanced Course - Simplilearn, 2025",
-        img: `${basePath}/image/chat_gpt_advanced_cert.jpg`,
+        img: `${basePath}/image/chat_gpt_advanced_cert.webp`,
     },
     {
         description: "Introduction to Prompt Engineering - Simplilearn, 2025",
-        img: `${basePath}/image/prompt_engineer_cert.jpg`,
+        img: `${basePath}/image/prompt_engineer_cert.webp`,
     },
 ];
 
@@ -195,7 +195,7 @@ export const ACHIEVEMENTS_DATA = (basePath: string = ""): Achievement[] => [
     {
         description:
             "🏆 Secured Second Prize in a Debugging Competition at National College, Trichy.",
-        img: `${basePath}/image/Debuggin-2nd-Prize.jpg`,
+        img: `${basePath}/image/Debuggin-2nd-Prize.webp`,
     },
 ];
 
@@ -203,17 +203,17 @@ export const PARTICIPATIONS_DATA = (basePath: string = ""): Achievement[] => [
     {
         description:
             "🏅 National Level Workshop: Web Application Frameworks (Struts, Spring, Hibernate) - Anna University, Trichy.",
-        img: `${basePath}/image/AnnaUniversity-2.jpg`,
+        img: `${basePath}/image/AnnaUniversity-2.webp`,
     },
     {
         description:
             "🏅 National Level Seminar: Skill-Based Jobs & Employment Opportunities - Anna University, Trichy.",
-        img: `${basePath}/image/AnnaUniversity-1.jpg`,
+        img: `${basePath}/image/AnnaUniversity-1.webp`,
     },
     {
         description:
             "🏅 State Level Workshop: Recent Trends in ICT - H.H. The Rajah's College, Pudukkottai.",
-        img: `${basePath}/image/HHRC.jpg`,
+        img: `${basePath}/image/HHRC.webp`,
     },
 ];
 

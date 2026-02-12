@@ -1,5 +1,3 @@
-"use client"
-
 import { HeroSection } from "@/components/hero-section"
 import { StatsCard } from "@/components/dashboard/stats-card"
 import { ActivityGraph } from "@/components/dashboard/activity-graph"
@@ -97,6 +95,7 @@ export default function Home() {
               <a
                 href="/pdf/azhagu-resume.pdf"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="group flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-all border border-primary/10 hover:border-primary/30"
               >
                 <span className="text-2xl group-hover:scale-110 transition-transform">📄</span>

@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { getPostSlugs } from '@/lib/mdx'
 
 export const dynamic = "force-static"
 
@@ -12,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/blog',
         '/about',
         '/contact',
+        '/tutorials',
+        '/privacy',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
@@ -19,8 +22,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: route === '' ? 1 : 0.8,
     }))
 
-    // TODO: In a real dynamic scenario, we would map over projects/blogs here.
-    // For now, listing known static paths or future dynamic fetching can be added.
+    // Dynamic content routes
+    const contentTypes = ['blog', 'projects', 'tutorials'] as const
+    const contentRoutes = contentTypes.flatMap((type) => {
+        const slugs = getPostSlugs(type)
+        return slugs.map((slug: string) => ({
+            url: `${baseUrl}/${type}/${slug.replace(/\.mdx$/, '')}`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 0.7,
+        }))
+    })
 
-    return [...routes]
+    return [...routes, ...contentRoutes]
 }
+

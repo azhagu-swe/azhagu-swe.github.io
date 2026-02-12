@@ -46,6 +46,7 @@ export function Footer() {
                                     key={link.platform}
                                     href={link.link}
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     className="p-2 rounded-full bg-secondary/50 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                                     aria-label={link.platform}
                                 >
@@ -57,7 +58,7 @@ export function Footer() {
                             <a href="/contact" className="inline-flex h-9 items-center justify-center rounded-md bg-secondary/50 px-4 text-sm font-medium transition-colors hover:bg-primary hover:text-primary-foreground">
                                 Let's Connect
                             </a>
-                            <a href="/pdf/azhagu-resume.pdf" target="_blank" className="inline-flex h-9 items-center justify-center rounded-md border border-input bg-transparent px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">
+                            <a href="/pdf/azhagu-resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex h-9 items-center justify-center rounded-md border border-input bg-transparent px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">
                                 Download Resume
                             </a>
                         </div>
