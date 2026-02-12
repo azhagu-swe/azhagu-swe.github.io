@@ -1,5 +1,4 @@
 import { CONTACT_DATA, SOCIAL_LINKS, HERO_DATA } from "@/lib/data"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Icon } from "@iconify/react"
@@ -7,6 +6,7 @@ import { Metadata } from "next"
 import Link from "next/link"
 import { DecipherText } from "@/components/ui/decipher-text"
 import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
+import { EmailButton } from "@/components/email-button"
 
 export const metadata: Metadata = {
     title: "Contact | Alagappan P",
@@ -123,7 +123,7 @@ export default function ContactPage() {
                             </CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <form className="space-y-4" action={"mailto:azhagu.swe@gmail.com"} method="post" encType="text/plain">
+                            <form className="space-y-4">
                                 <div className="space-y-2">
                                     <label htmlFor="name" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                                         {CONTACT_DATA.form.nameLabel}
@@ -148,10 +148,7 @@ export default function ContactPage() {
                                         name="message"
                                     />
                                 </div>
-                                <Button type="submit" className="w-full h-12 text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30">
-                                    <Icon icon="lucide:send" className="w-4 h-4 mr-2" />
-                                    Let's Build Together
-                                </Button>
+                                <EmailButton />
                             </form>
                         </CardContent>
                     </Card>
@@ -160,4 +157,3 @@ export default function ContactPage() {
         </div>
     )
 }
-

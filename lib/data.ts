@@ -12,7 +12,7 @@ const SHARED_TEXT = {
     ROLE: "Full-Stack Java Developer @ Infosys",
     TAGLINE: "I Ship 40% Faster APIs",
     BIO: "I architect backend systems that companies rely on to move faster. From reducing API latency by 40% with Redis optimization to building geohash engines powering 1M+ devices—I don't just write code, I eliminate bottlenecks.",
-    SHORT_BIO: "Full-Stack Java Developer specializing in high-performance microservices. Reduced API latency by 40% • Built systems serving 1M+ devices • Award-winning problem solver.",
+    SHORT_BIO: "Full-Stack Java Developer specializing in high-performance microservices. Reduced API latency by 40% • Built systems serving 1M+ devices ",
     ORIGIN_STORY: "I became a developer because I couldn't stand inefficiency. That drive led me to win 2nd place in a national debugging competition and build systems that handle millions of requests.",
 };
 
@@ -82,7 +82,6 @@ export const HERO_DATA = {
     roles: [
         "40% Faster APIs 🚀",
         "1M+ Devices Powered 📍",
-        "Award-Winning Code 🏆",
         "Full-Stack Expert ☕",
     ],
     description: SHARED_TEXT.BIO,

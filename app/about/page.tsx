@@ -14,6 +14,7 @@ import Image from "next/image"
 import { DecipherText } from "@/components/ui/decipher-text"
 import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
 import { GitHubStats } from "@/components/github-stats"
+import { SafeHighlight } from "@/lib/safe-highlight"
 
 export const metadata: Metadata = {
     title: "About | Alagappan P",
@@ -64,7 +65,7 @@ export default function AboutPage() {
 
                             <ul className="list-disc list-outside ml-4 mt-4 space-y-2 text-muted-foreground">
                                 {role.responsibilities.map((resp, i) => (
-                                    <li key={i} dangerouslySetInnerHTML={{ __html: resp }} />
+                                    <li key={i}><SafeHighlight text={resp} /></li>
                                 ))}
                             </ul>
 
@@ -128,7 +129,6 @@ export default function AboutPage() {
             <section className="space-y-8">
                 <div className="flex items-center gap-2">
                     <Icon icon="lucide:trophy" className="w-6 h-6 text-primary" />
-                    {/* Simplified heading just to show decipher text on main ones usually, but here just h2 is fine or decipher */}
                     <h2 className="text-2xl font-bold tracking-tight">Achievements</h2>
                 </div>
 

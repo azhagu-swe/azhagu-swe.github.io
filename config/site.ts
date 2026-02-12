@@ -71,7 +71,7 @@ export const siteConfig = {
         ],
     },
     links: {
-        twitter: "https://twitter.com/yourusername",
-        github: "https://github.com/yourusername",
+        twitter: "https://twitter.com/azhagu_swe",
+        github: "https://github.com/azhagu-swe",
     },
 }

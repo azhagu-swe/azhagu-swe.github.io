@@ -20,7 +20,11 @@ export function GitHubStats({ username = "azhagu-swe" }: { username?: string }) 
         async function fetchStats() {
             try {
                 const res = await fetch(`https://api.github.com/users/${username}`)
-                if (res.ok) {
+                if (res.status === 403) {
+                    // Rate limited — fail gracefully
+                    console.warn("GitHub API rate limited. Showing fallback stats.")
+                    setStats({ public_repos: 10, followers: 5, following: 3 })
+                } else if (res.ok) {
                     const data = await res.json()
                     setStats({
                         public_repos: data.public_repos,
