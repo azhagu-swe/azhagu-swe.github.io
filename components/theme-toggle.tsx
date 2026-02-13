@@ -41,7 +41,7 @@ export function ThemeToggle() {
             variant="ghost"
             size="sm"
             onClick={cycleTheme}
-            className="w-9 h-9 p-0 rounded-full relative overflow-hidden transition-colors hover:bg-accent/50 group"
+            className="w-9 h-9 p-0 rounded-full relative overflow-hidden transition-colors hover:bg-primary/10 hover:text-primary group"
         >
             <div className="relative w-5 h-5 flex items-center justify-center">
                 {/* Light Mode: Sun */}

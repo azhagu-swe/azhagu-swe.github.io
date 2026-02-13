@@ -9,6 +9,8 @@ import { FaviconManager } from "@/components/favicon-manager";
 import { Footer } from "@/components/layout/footer";
 import { PwaRegister } from "@/components/pwa-register";
 import { InstallPrompt } from "@/components/pwa/install-prompt";
+import { CommandMenu } from "@/components/command-menu";
+import { getAllPosts } from "@/lib/mdx";
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
@@ -62,11 +64,14 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const posts = await getAllPosts("blog")
+  const projects = await getAllPosts("projects")
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -91,6 +96,7 @@ export default function RootLayout({
           themes={["light", "dark"]}
         >
           <FaviconManager />
+          <CommandMenu posts={posts} />
           <MainLayout footer={<Footer />}>{children}</MainLayout>
           <PwaRegister />
           <InstallPrompt />

@@ -26,7 +26,7 @@ export function Navbar({ onToggleSidebar, isSidebarOpen }: NavbarProps) {
                     {/* Mobile Hamburger */}
                     <Sheet open={open} onOpenChange={setOpen}>
                         <SheetTrigger asChild>
-                            <Button variant="ghost" size="icon" className="lg:hidden">
+                            <Button variant="ghost" size="icon" className="lg:hidden text-primary hover:bg-primary/10">
                                 <Icon icon="lucide:menu" className="w-5 h-5" />
                                 <span className="sr-only">Toggle Menu</span>
                             </Button>
@@ -37,7 +37,7 @@ export function Navbar({ onToggleSidebar, isSidebarOpen }: NavbarProps) {
                                     {/* <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                                     <Icon icon="lucide:zap" className="w-5 h-5 text-primary-foreground" />
                                 </div> */}
-                                    Portfolio
+                                    Azhagu.swe
                                 </SheetTitle>
                                 <SheetDescription className="text-xs text-muted-foreground">
                                     Navigate through the portfolio sections.
@@ -71,11 +71,31 @@ export function Navbar({ onToggleSidebar, isSidebarOpen }: NavbarProps) {
                         {/* <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center hidden lg:flex">
                         <Icon icon="lucide:zap" className="w-5 h-5 text-primary-foreground" />
                     </div> */}
-                        <span className="hidden lg:inline-block font-bold text-xl">Portfolio</span>
+                        <span className="hidden lg:inline-block font-bold text-xl">Azhagu.swe</span>
                     </Link>
                 </div>
 
                 <div className="flex items-center gap-4">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        className="hidden md:flex items-center gap-2 text-muted-foreground hover:text-primary h-9 px-4 bg-muted/50 border-primary/20 hover:bg-primary/10 hover:border-primary/50"
+                        onClick={() => document.dispatchEvent(new Event('open-command-menu'))}
+                    >
+                        <Icon icon="lucide:search" className="w-4 h-4" />
+                        <span className="text-sm">Search...</span>
+                        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                            <span className="text-xs">⌘</span>K
+                        </kbd>
+                    </Button>
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="md:hidden"
+                        onClick={() => document.dispatchEvent(new Event('open-command-menu'))}
+                    >
+                        <Icon icon="lucide:search" className="w-5 h-5" />
+                    </Button>
                     {/* <ThemeToggle /> Removed to avoid duplication with Sidebar */}
                 </div>
             </div>

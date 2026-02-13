@@ -36,7 +36,7 @@ export function ContactForm() {
                 <label htmlFor="email" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                     {CONTACT_DATA.form.emailLabel}
                 </label>
-                <Input id="email" type="email" placeholder="john@example.com" required name="email" />
+                <Input id="email" type="email" placeholder="john@example.com" required name="email" suppressHydrationWarning />
             </div>
             <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
@@ -48,6 +48,7 @@ export function ContactForm() {
                     placeholder="I'm building a high-traffic API and need help with..."
                     required
                     name="message"
+                    suppressHydrationWarning
                 />
             </div>
 

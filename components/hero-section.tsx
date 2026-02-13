@@ -4,7 +4,10 @@ import { motion } from "framer-motion"
 import { HERO_DATA, SOCIAL_PROOF_DATA, TRUSTED_BY_DATA } from "@/lib/data"
 import Image from "next/image"
 import { Icon } from "@iconify/react"
+import Link from "next/link"
 import { DecipherText } from "@/components/ui/decipher-text"
+
+const MotionLink = motion(Link)
 
 export function HeroSection() {
     const { name, title, tagline, description, images, availability, roles } = HERO_DATA
@@ -80,7 +83,7 @@ export function HeroSection() {
 
                     {/* CTA Buttons - Primary Hierarchy */}
                     <div className="flex flex-wrap items-center gap-4 pt-4">
-                        <motion.a
+                        <MotionLink
                             href="/contact"
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -92,8 +95,8 @@ export function HeroSection() {
                             <span className="relative z-10">Hire Me for Your Next Project</span>
                             <Icon icon="lucide:arrow-right" className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                             <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent/50 to-primary bg-[length:200%_100%] animate-[shimmer_2s_infinite]" />
-                        </motion.a>
-                        <motion.a
+                        </MotionLink>
+                        <MotionLink
                             href="/projects"
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -103,19 +106,19 @@ export function HeroSection() {
                         >
                             <Icon icon="lucide:folder-open" className="w-4 h-4" />
                             View My Work
-                        </motion.a>
-                        <motion.a
-                            href="/pdf/azhagu-resume.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        </MotionLink>
+                        <MotionLink
+                            href="/resume"
+                            // target="_blank"
+                            // rel="noopener noreferrer"
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.8, duration: 0.5 }}
                             className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-border/50 bg-card/30 px-6 text-sm font-medium text-muted-foreground transition-all hover:bg-card/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                         >
                             <Icon icon="lucide:download" className="w-4 h-4" />
-                            Resume
-                        </motion.a>
+                            {HERO_DATA.buttons.resume}
+                        </MotionLink>
                     </div>
                 </div>
 

@@ -3,7 +3,7 @@ import { SocialLink, ExperienceRole, SkillCategory, Certification, Achievement, 
 export const BASE_URLS = {
     PORTFOLIO: "https://azhagu-swe.github.io",
     PROFILE_IMAGE: "/image/profile.webp",
-    RESUME: "/pdf/azhagu-resume.pdf",
+    RESUME: "/resume",
 };
 
 // Shared constants to avoid duplication
@@ -56,7 +56,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
         platform: "YouTube",
         icon: "mdi:youtube",
         link: "https://www.youtube.com/channel/UCuA9qjEfLAk6hmiNPYvZEvQ",
-        username: "@azhagu-dev",
+        username: "@azhagu-swe",
         color: "#FF0000",
     },
 ];
@@ -88,7 +88,7 @@ export const HERO_DATA = {
     buttons: {
         primary: "Hire Me for Your Next Project",
         secondary: "View My Work",
-        resume: "Download Resume",
+        resume: "View Interactive Resume",
     },
     images: {
         profile: BASE_URLS.PROFILE_IMAGE,
@@ -228,7 +228,7 @@ export const EXPERIENCE_DATA = {
             title: "Full Stack Java Developer",
             company: "Infosys",
             duration: "Nov 2025 – Present",
-            location: "India",
+            location: "Chennai, Tamil Nadu, India",
             responsibilities: [
                 "Architecting microservices handling <strong>50K+ requests/minute</strong> with 99.9% uptime guarantee.",
                 "Reduced deployment pipeline from <strong>4 hours to 15 minutes</strong> through CI/CD optimization.",

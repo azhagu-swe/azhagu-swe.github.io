@@ -121,6 +121,6 @@ I'm a dedicated Full-Stack Java Developer with nearly 3 years of experience buil
 [![Email](https://img.shields.io/badge/azhagu.swe@gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:azhagu.swe@gmail.com)  
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/azhagu.swe)  
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white)](https://twitter.com/azhagu_swe)  
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/@azhagu-dev)  
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/@azhagu-swe)  
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/azhagu-swe/)  
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=github&logoColor=white)](https://github.com/azhagu-dev)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=github&logoColor=white)](https://github.com/azhagu-swe)

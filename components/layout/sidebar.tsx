@@ -63,7 +63,7 @@ export function Sidebar({ className, isOpen, isMobile, onClose }: SidebarProps) 
             <Button
                 variant="ghost"
                 size="icon"
-                className="absolute -right-3 top-6 z-50 h-6 w-6 rounded-full border border-border bg-background shadow-md hover:bg-accent hidden lg:flex"
+                className="absolute -right-3 top-6 z-50 h-6 w-6 rounded-full border border-border bg-background shadow-md hover:bg-primary/10 text-primary hover:text-primary hidden lg:flex"
                 onClick={toggleCollapse}
                 aria-label={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
             >
@@ -92,7 +92,7 @@ export function Sidebar({ className, isOpen, isMobile, onClose }: SidebarProps) 
                                 exit={{ opacity: 0, width: 0 }}
                                 className="overflow-hidden whitespace-nowrap"
                             >
-                                Portfolio
+                                Azhagu.swe
                             </motion.span>
                         )}
                     </AnimatePresence>
@@ -118,14 +118,27 @@ export function Sidebar({ className, isOpen, isMobile, onClose }: SidebarProps) 
                                 >
                                     <Icon icon={item.icon} className={cn("w-5 h-5 shrink-0 z-10", isActive ? "animate-pulse" : "")} />
                                     {!isCollapsed && (
-                                        <motion.span
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            exit={{ opacity: 0 }}
-                                            className="font-medium whitespace-nowrap overflow-hidden z-10"
-                                        >
-                                            {item.title}
-                                        </motion.span>
+                                        <div className="flex items-center gap-2 z-10">
+                                            <motion.span
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                                className="font-medium whitespace-nowrap overflow-hidden"
+                                            >
+                                                {item.title}
+                                            </motion.span>
+                                            {/* @ts-ignore */}
+                                            {item.badge && (
+                                                <motion.span
+                                                    initial={{ opacity: 0, scale: 0.8 }}
+                                                    animate={{ opacity: 1, scale: 1 }}
+                                                    className="px-1.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-500 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20"
+                                                >
+                                                    {/* @ts-ignore */}
+                                                    {item.badge}
+                                                </motion.span>
+                                            )}
+                                        </div>
                                     )}
                                     {isActive && (
                                         <motion.div

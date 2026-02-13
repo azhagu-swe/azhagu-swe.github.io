@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { HeroSection } from "@/components/hero-section"
 import { StatsCard } from "@/components/dashboard/stats-card"
 import { ActivityGraph } from "@/components/dashboard/activity-graph"
@@ -85,36 +86,34 @@ export default function Home() {
               Quick Actions
             </h3>
             <div className="grid grid-cols-2 gap-3">
-              <a
+              <Link
                 href="/contact"
                 className="group flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 hover:from-primary/20 hover:to-primary/10 transition-all border border-primary/20 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10"
               >
                 <span className="text-2xl group-hover:scale-110 transition-transform">✉️</span>
                 <span className="text-xs font-semibold">Hire Me</span>
-              </a>
-              <a
-                href="/pdf/azhagu-resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+              </Link>
+              <Link
+                href="/resume"
                 className="group flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-all border border-primary/10 hover:border-primary/30"
               >
                 <span className="text-2xl group-hover:scale-110 transition-transform">📄</span>
-                <span className="text-xs font-medium">Resume</span>
-              </a>
-              <a
+                <span className="text-xs font-medium">Interactive Resume</span>
+              </Link>
+              <Link
                 href="/projects"
                 className="group flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-all border border-primary/10 hover:border-primary/30"
               >
                 <span className="text-2xl group-hover:scale-110 transition-transform">🚀</span>
                 <span className="text-xs font-medium">Projects</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/blog"
                 className="group flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-all border border-primary/10 hover:border-primary/30"
               >
                 <span className="text-2xl group-hover:scale-110 transition-transform">📝</span>
                 <span className="text-xs font-medium">Blog</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

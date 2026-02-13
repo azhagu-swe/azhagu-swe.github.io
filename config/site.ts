@@ -1,6 +1,6 @@
 
 export const siteConfig = {
-    name: "Azhagu-swe",
+    name: "Azhagu.swe",
     description: "A high-performance, Gen-Z styled Portfolio PWA.",
     mainNav: [
         {
@@ -50,6 +50,12 @@ export const siteConfig = {
                 title: "Projects",
                 href: "/projects",
                 icon: "lucide:folder-code",
+            },
+            {
+                title: "Resume",
+                href: "/resume",
+                icon: "lucide:file-text",
+                // badge: "New", // Adding badge here directly as it's just a JS object for now
             },
             {
                 title: "Contact",
