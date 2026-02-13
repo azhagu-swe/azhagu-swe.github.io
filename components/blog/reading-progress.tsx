@@ -27,9 +27,15 @@ export function ReadingProgress() {
     }, [])
 
     return (
-        <motion.div
-            className="fixed top-0 left-0 right-0 h-1 bg-primary z-50 origin-left"
-            style={{ scaleX, opacity: isVisible ? 1 : 0, transition: "opacity 0.3s" }}
-        />
+        <>
+            <motion.div
+                className="fixed top-0 left-0 right-0 h-1 z-50 origin-left bg-gradient-to-r from-primary via-accent to-primary background-animate"
+                style={{ scaleX, opacity: isVisible ? 1 : 0, transition: "opacity 0.3s" }}
+            />
+            <motion.div
+                className="fixed top-0 left-0 right-0 h-1 z-40 origin-left bg-primary/20 blur-sm"
+                style={{ scaleX, opacity: isVisible ? 1 : 0, transition: "opacity 0.3s" }}
+            />
+        </>
     )
 }

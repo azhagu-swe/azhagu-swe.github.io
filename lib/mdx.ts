@@ -60,3 +60,24 @@ export async function getAllPosts(type: string): Promise<Post[]> {
             return new Date(a.frontmatter.date).getTime() > new Date(b.frontmatter.date).getTime() ? -1 : 1
         })
 }
+
+export async function getRelatedPosts(currentSlug: string, tags: string[], limit: number = 3): Promise<Post[]> {
+    const allPosts = await getAllPosts("blog")
+
+    return allPosts
+        .filter((post) => post.slug !== currentSlug) // Exclude current post
+        .map((post) => {
+            // Calculate matching tags
+            const matchingTags = post.frontmatter.tags?.filter((tag) => tags.includes(tag)).length || 0
+            return { ...post, matchingTags }
+        })
+        .filter((post) => post.matchingTags > 0) // Only include posts with at least one matching tag
+        .sort((a, b) => {
+            // Sort by matching tags (descending)
+            if (a.matchingTags > b.matchingTags) return -1
+            if (a.matchingTags < b.matchingTags) return 1
+            // If tags are equal, sort by date (descending)
+            return new Date(a.frontmatter.date).getTime() > new Date(b.frontmatter.date).getTime() ? -1 : 1
+        })
+        .slice(0, limit)
+}

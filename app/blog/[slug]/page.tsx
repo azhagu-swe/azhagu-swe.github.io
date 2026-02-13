@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { Icon } from "@iconify/react"
-import { getPostBySlug, getPostSlugs } from "@/lib/mdx"
+import { getPostBySlug, getPostSlugs, getRelatedPosts } from "@/lib/mdx"
 import { CustomMDX } from "@/components/custom-mdx"
 import { BentoHeader } from "@/components/mdx/bento-header"
 import { ReadingProgress } from "@/components/blog/reading-progress"
+import { RelatedPosts } from "@/components/blog/related-posts"
 
 interface PostPageProps {
     params: Promise<{
@@ -87,6 +88,8 @@ export default async function PostPage({ params }: PostPageProps) {
                     <div className="prose dark:prose-invert max-w-none prose-lg prose-headings:scroll-mt-20">
                         <CustomMDX source={content} />
                     </div>
+
+                    <RelatedPosts posts={await getRelatedPosts(slug, frontmatter.tags || [])} />
                 </article>
 
                 {/* Floating TOC HUD (Right - Desktop Only) */}
