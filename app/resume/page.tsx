@@ -28,7 +28,7 @@ export default function ResumePage() {
             {/* Resume Content */}
             <div ref={componentRef} className="bg-background print:bg-white print:text-black space-y-10">
                 {/* Header */}
-                <header className="space-y-4 text-center sm:text-left print:text-left">
+                <div role="banner" className="space-y-4 text-center sm:text-left print:text-left">
                     <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
                         <div className="space-y-2">
                             <h1 className="text-4xl md:text-5xl font-bold tracking-tight print:text-4xl">
@@ -60,7 +60,7 @@ export default function ResumePage() {
                             </div>
                         </div>
                     </div>
-                </header>
+                </div>
 
                 <Separator className="print:border-black" />
 

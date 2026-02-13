@@ -13,7 +13,7 @@ export function ResumeSkillMatrix() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="p-4 rounded-xl border border-border/50 bg-card/30 backdrop-blur-sm"
+                    className="p-4 rounded-xl border border-border/50 bg-card/30 backdrop-blur-sm print:!opacity-100 print:!translate-y-0 print:break-inside-avoid print:border-black"
                 >
                     <h3 className="text-lg font-semibold mb-4 text-primary flex items-center gap-2">
                         {category.title}

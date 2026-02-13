@@ -15,22 +15,22 @@ export function MainLayout({ children, footer }: { children: React.ReactNode, fo
     const mainRef = useRef<HTMLElement>(null)
 
     return (
-        <div className="flex h-screen overflow-hidden bg-background text-foreground transition-colors duration-300 p-2.5 gap-2.5">
+        <div className="flex h-screen overflow-hidden bg-background text-foreground transition-colors duration-300 p-2.5 gap-2.5 print:p-0 print:h-auto print:overflow-visible print:block">
             <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-background focus:text-foreground focus:top-4 focus:left-4 rounded-md border border-primary">
                 Skip to Main Content
             </a>
             <MouseGlow />
             {/* Desktop Sidebar (Left) */}
-            <Sidebar isOpen={isOpen} isMobile={isMobile} onClose={() => setOpen(false)} className="rounded-xl shadow-sm border border-border/50" />
+            <Sidebar isOpen={isOpen} isMobile={isMobile} onClose={() => setOpen(false)} className="rounded-xl shadow-sm border border-border/50 print:hidden" />
 
             {/* Content Column (Right) */}
-            <div className="flex flex-col flex-1 overflow-hidden relative transition-all duration-300 gap-2.5 rounded-xl">
+            <div className="flex flex-col flex-1 overflow-hidden relative transition-all duration-300 gap-2.5 rounded-xl print:overflow-visible print:h-auto print:block">
 
                 {/* Main Content Area */}
                 <main
                     id="main-content"
                     ref={mainRef}
-                    className="flex-1 overflow-y-auto overflow-x-hidden relative flex flex-col w-full scroll-smooth rounded-xl border border-border/50 bg-card/30 shadow-sm gap-16"
+                    className="flex-1 overflow-y-auto overflow-x-hidden relative flex flex-col w-full scroll-smooth rounded-xl border border-border/50 bg-card/30 shadow-sm gap-16 print:overflow-visible print:h-auto print:block print:border-none print:shadow-none print:bg-transparent"
                 >
                     <div className="sticky top-0 z-40 w-full">
                         <Navbar onToggleSidebar={toggle} isSidebarOpen={isOpen} />

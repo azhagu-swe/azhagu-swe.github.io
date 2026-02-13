@@ -474,4 +474,15 @@
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
+
+  /* Force visible overflow on all main containers */
+  html,
+  body,
+  #__next,
+  main,
+  [data-nextjs-scroll-focus-boundary] {
+    overflow: visible !important;
+    height: auto !important;
+    display: block !important;
+  }
 }

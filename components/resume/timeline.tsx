@@ -13,7 +13,7 @@ export function ResumeTimeline() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="pl-8 relative group"
+                    className="pl-8 relative group print:!opacity-100 print:!translate-x-0 print:!block print:break-inside-avoid"
                 >
                     {/* Timeline Dot */}
                     <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-background border-2 border-primary group-hover:bg-primary transition-colors" />
