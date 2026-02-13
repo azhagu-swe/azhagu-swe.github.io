@@ -4,17 +4,19 @@ import { Icon } from "@iconify/react"
 import { siteConfig } from "@/config/site"
 import { SOCIAL_LINKS } from "@/lib/data"
 
+import { NewsletterForm } from "@/components/newsletter-form"
+
 export function Footer() {
     const currentYear = new Date().getFullYear()
 
     return (
         <footer className="w-full border-t border-border/50 bg-card/30 backdrop-blur-sm">
-            <div className="container max-w-5xl mx-auto px-4 py-8 md:py-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            <div className="container max-w-7xl mx-auto px-4 py-8 md:py-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
                     {/* Brand */}
                     <div className="space-y-4">
                         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-                            <span className="text-primary">Portfolio</span>
+                            <span className="text-primary">Azhagu.swe</span>
                         </Link>
                         <p className="text-muted-foreground text-sm max-w-xs">
                             Building the future of web with modern aesthetics and robust engineering.
@@ -58,10 +60,12 @@ export function Footer() {
                             <a href="/contact" className="inline-flex h-9 items-center justify-center rounded-md bg-secondary/50 px-4 text-sm font-medium transition-colors hover:bg-primary hover:text-primary-foreground">
                                 Let's Connect
                             </a>
-                            <a href="/pdf/azhagu-resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex h-9 items-center justify-center rounded-md border border-input bg-transparent px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">
-                                Download Resume
-                            </a>
                         </div>
+                    </div>
+
+                    {/* Newsletter */}
+                    <div className="space-y-4">
+                        <NewsletterForm />
                     </div>
                 </div>
 

@@ -74,6 +74,11 @@ export const siteConfig = {
                 href: "/tutorials",
                 icon: "lucide:graduation-cap",
             },
+            {
+                title: "Guestbook",
+                href: "/guestbook",
+                icon: "lucide:message-square",
+            },
         ],
     },
     links: {

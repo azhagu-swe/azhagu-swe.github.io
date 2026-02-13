@@ -5,7 +5,7 @@
     <link>https://azhagu-swe.github.io</link>
     <description>Full-Stack Java Developer specializing in high-performance microservices.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Feb 2026 07:24:46 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Feb 2026 10:44:56 GMT</lastBuildDate>
     <atom:link href="https://azhagu-swe.github.io/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -14,6 +14,27 @@
       <guid>https://azhagu-swe.github.io/blog/hello-world</guid>
       <pubDate>Fri, 19 Dec 2025 00:00:00 GMT</pubDate>
       <description><![CDATA[My first blog post using Next.js and MDX.]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Python for Data Science]]></title>
+      <link>https://azhagu-swe.github.io/blog/test-python</link>
+      <guid>https://azhagu-swe.github.io/blog/test-python</guid>
+      <pubDate>Fri, 22 Mar 2024 00:00:00 GMT</pubDate>
+      <description><![CDATA[Getting started with Python for data analysis using Pandas and NumPy.]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Next.js 14 Features]]></title>
+      <link>https://azhagu-swe.github.io/blog/test-nextjs</link>
+      <guid>https://azhagu-swe.github.io/blog/test-nextjs</guid>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 GMT</pubDate>
+      <description><![CDATA[Exploring the new features in Next.js 14 including Server Actions and Partial Prerendering.]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Mastering React Hooks]]></title>
+      <link>https://azhagu-swe.github.io/blog/test-hooks</link>
+      <guid>https://azhagu-swe.github.io/blog/test-hooks</guid>
+      <pubDate>Fri, 15 Mar 2024 00:00:00 GMT</pubDate>
+      <description><![CDATA[A deep dive into React Hooks and how to use them effectively in your applications.]]></description>
     </item>
   </channel>
 </rss>
