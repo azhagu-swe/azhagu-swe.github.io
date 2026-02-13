@@ -67,6 +67,7 @@ export function NewsletterForm() {
                                     onChange={(e) => setEmail(e.target.value)}
                                     disabled={status === "loading"}
                                     required
+                                    suppressHydrationWarning
                                 />
                             </div>
                             <Button
