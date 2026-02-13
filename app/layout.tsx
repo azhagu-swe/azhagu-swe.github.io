@@ -8,6 +8,7 @@ import { MainLayout } from "@/components/layout/main-layout";
 import { FaviconManager } from "@/components/favicon-manager";
 import { Footer } from "@/components/layout/footer";
 import { PwaRegister } from "@/components/pwa-register";
+import { InstallPrompt } from "@/components/pwa/install-prompt";
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
@@ -92,6 +93,7 @@ export default function RootLayout({
           <FaviconManager />
           <MainLayout footer={<Footer />}>{children}</MainLayout>
           <PwaRegister />
+          <InstallPrompt />
         </ThemeProvider>
       </body>
     </html>
