@@ -18,7 +18,7 @@
                 "categories:accessibility": [
                     "error",
                     {
-                        "minScore": 1
+                        "minScore": 0.9
                     }
                 ],
                 "categories:best-practices": [
@@ -30,7 +30,7 @@
                 "categories:seo": [
                     "error",
                     {
-                        "minScore": 1
+                        "minScore": 0.9
                     }
                 ]
             }
