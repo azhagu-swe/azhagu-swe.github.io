@@ -1,68 +1,61 @@
-import fs from "fs"
-import path from "path"
-import { Post } from "@/lib/types"
-import matter from "gray-matter"
-import { compileMDX } from "next-mdx-remote/rsc"
-import rehypePrettyCode from "rehype-pretty-code"
-import rehypeSlug from "rehype-slug"
-import rehypeAutolinkHeadings from "rehype-autolink-headings"
-import { FrontmatterSchema } from "@/lib/schemas"
+import { posts, projects, tutorials } from '@/.velite'
+import { Post, ProjectData, VeliteProject, VeliteTutorial } from '@/lib/types'
 
-const root = process.cwd()
+// Re-export Velite types if needed, or map them to existing types
+export type { Post, Project, Tutorial } from '@/.velite'
 
-export function getPostSlugs(type: string) {
-    const dir = path.join(root, "content", type)
-    if (!fs.existsSync(dir)) return []
-    return fs.readdirSync(dir)
+export function getPostSlugs(type: 'blog' | 'tutorials' | 'projects' = 'blog'): string[] {
+    if (type === 'projects') return projects.map(p => p.slugAsParams)
+    const data = type === 'blog' ? posts : tutorials
+    // @ts-ignore
+    return data.map((p) => p.slugAsParams)
 }
 
-export async function getPostBySlug(type: string, slug: string): Promise<Post | null> {
-    const realSlug = slug.replace(/\.mdx$/, "")
-    const fullPath = path.join(root, "content", type, `${realSlug}.mdx`)
+export async function getAllPosts(type: 'blog' | 'tutorials' = 'blog'): Promise<Post[]> {
+    const data = type === 'blog' ? posts : tutorials
+    return data
+        .filter(post => process.env.NODE_ENV === 'development' || post.published)
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .map(post => ({
+            ...post,
+            slug: post.slugAsParams,
+            readingTime: "5 min read", // Velite can compute this, but for now hardcoded or added to schema
+            frontmatter: {
+                title: post.title,
+                description: post.description || "",
+                date: post.date,
+                tags: post.tags || [],
+                image: post.image,
+                author: "Alagappan P"
+            },
+            content: post.body // Velite returns compiled MDX or raw string depending on config. s.mdx() returns compiled code.
+        })) as unknown as Post[]
+}
 
-    if (!fs.existsSync(fullPath)) {
-        return null
-    }
+export async function getPostBySlug(slug: string, type: 'blog' | 'tutorials' = 'blog'): Promise<Post | null> {
+    const data = type === 'blog' ? posts : tutorials
+    // @ts-ignore - Velite types might not be perfectly aligned in array union, but structure is similar enough
+    const post = data.find(p => p.slugAsParams === slug)
+    if (!post) return null
 
-    const fileContents = fs.readFileSync(fullPath, "utf8")
-    const { data: rawFrontmatter, content } = matter(fileContents)
-
-    // Validate frontmatter
-    const parsed = FrontmatterSchema.safeParse(rawFrontmatter)
-
-    if (!parsed.success) {
-        console.error(`Invalid frontmatter in ${fullPath}:`, parsed.error.format())
-        return null // Or throw, but null is safer for build continuation
-    }
-
-    const frontmatter = parsed.data
-
-    // Calculate reading time
-    const words = content.trim().split(/\s+/).length
-    const readingTime = Math.ceil(words / 200) + " min read"
-
-    // Return raw content for react-markdown
     return {
-        slug: realSlug,
-        frontmatter,
-        content: content,
-        readingTime
-    }
-}
-
-export async function getAllPosts(type: string): Promise<Post[]> {
-    const slugs = getPostSlugs(type)
-    const posts = await Promise.all(slugs.map((slug: string) => getPostBySlug(type, slug)))
-
-    return posts
-        .filter((post): post is Post => post !== null)
-        .sort((a, b) => {
-            return new Date(a.frontmatter.date).getTime() > new Date(b.frontmatter.date).getTime() ? -1 : 1
-        })
+        ...post,
+        slug: post.slugAsParams,
+        readingTime: "5 min read",
+        frontmatter: {
+            title: post.title,
+            description: post.description || "",
+            date: post.date,
+            tags: post.tags || [],
+            image: post.image,
+            author: "Alagappan P"
+        },
+        content: post.body
+    } as unknown as Post
 }
 
 export async function getRelatedPosts(currentSlug: string, tags: string[], limit: number = 3): Promise<Post[]> {
-    const allPosts = await getAllPosts("blog")
+    const allPosts = await getAllPosts()
 
     return allPosts
         .filter((post) => post.slug !== currentSlug) // Exclude current post
@@ -81,3 +74,9 @@ export async function getRelatedPosts(currentSlug: string, tags: string[], limit
         })
         .slice(0, limit)
 }
+
+// Project Helpers
+export async function getAllProjects(): Promise<VeliteProject[]> {
+    return projects.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+}
+

@@ -10,7 +10,7 @@ import { Footer } from "@/components/layout/footer";
 import { PwaRegister } from "@/components/pwa-register";
 import { InstallPrompt } from "@/components/pwa/install-prompt";
 import { CommandMenu } from "@/components/command-menu";
-import { getAllPosts } from "@/lib/mdx";
+import { getAllPosts, getAllProjects } from "@/lib/mdx";
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
@@ -70,7 +70,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const posts = await getAllPosts("blog")
-  const projects = await getAllPosts("projects")
+  const projects = await getAllProjects()
 
   return (
     <html lang="en" suppressHydrationWarning>

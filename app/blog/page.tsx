@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogPage() {
-    const posts = await getAllPosts("blog")
+    const posts = await getAllPosts()
 
     const jsonLd = {
         "@context": "https://schema.org",

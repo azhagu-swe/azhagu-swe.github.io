@@ -1,6 +1,9 @@
 import { Frontmatter as ZodFrontmatter } from "./schemas"
 
 // Content Types
+import { Post as VelitePost, Project as VeliteProject, Tutorial as VeliteTutorial } from '@/.velite'
+export type { VelitePost, VeliteProject, VeliteTutorial }
+
 export type Frontmatter = ZodFrontmatter
 
 export interface Post {

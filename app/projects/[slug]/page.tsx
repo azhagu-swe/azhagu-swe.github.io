@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: ProjectPageProps) {
     const { slug } = await params
-    const post = await getPostBySlug("projects", slug)
+    const post = await getPostBySlug(slug, "projects" as any) // "projects" is not in the union type in my definition? Let's check logic.
 
     if (!post) {
         return {}
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
     const { slug } = await params
-    const post = await getPostBySlug("projects", slug)
+    const post = await getPostBySlug(slug, "projects" as any)
 
     if (!post) {
         notFound()

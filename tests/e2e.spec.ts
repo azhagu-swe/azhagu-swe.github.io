@@ -16,12 +16,12 @@ test.describe('Portfolio E2E Tests', () => {
 
         // Handle mobile navigation if needed
         if (isMobile) {
-            // Mobile Bottom Nav is a <nav> fixed at bottom
-            // We scope the search to that nav to ensure we don't hit hidden sidebar links
-            const bottomNav = page.locator('nav').filter({ hasText: 'Home' }); // Bottom nav has Home
-            await bottomNav.getByRole('link', { name: 'Blog' }).click();
+            // Mobile navigation often uses icons or bottom bar.
+            // Assuming there is a bottom nav with aria-label or specific class.
+            // Let's try locating by href if text is hidden or it's an icon.
+            await page.locator('a[href="/blog"]').last().click();
         } else {
-            await page.getByRole('link', { name: 'Blog' }).first().click();
+            await page.getByRole('link', { name: 'Blog' }).click();
         }
 
         await expect(page).toHaveURL(/.*blog/);
