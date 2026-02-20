@@ -11,24 +11,28 @@
 ### 1.1 Container Architecture
 
 ```mermaid
-containerDiagram
-    boundary "Portfolio Application" {
-        Container(Next.js App Router, "Next.js 16 + React 19", "TypeScript")
-        Container(Velite CMS, "Velite + Zod", "Content Pipeline")
-        Container(Tailwind CSS, "Tailwind v3 + Framer Motion", "Styling & Animation")
-    }
+graph TB
+    subgraph "Portfolio Application"
+        NextJS["Next.js App Router<br/>Next.js 16 + React 19<br/>TypeScript"]
+        Velite["Velite CMS<br/>Velite + Zod<br/>Content Pipeline"]
+        Tailwind["Tailwind CSS<br/>Tailwind v3 + Framer Motion<br/>Styling & Animation"]
+    end
 
-    boundary "External Dependencies" {
-        Container_Ext_Giscus[Giscus React]
-        Container_Ext_Radix[Radix UI Primitives]
-        Container_Ext_Shiki[Shiki Syntax Highlighter]
-    }
+    subgraph "External Dependencies"
+        Giscus["Giscus React"]
+        Radix["Radix UI Primitives"]
+        Shiki["Shiki Syntax Highlighter"]
+    end
 
-    Rel(Next.js App Router, Velite CMS, "Imports Generated Types")
-    Rel(Next.js App Router, Tailwind CSS, "Applies Utility Classes")
-    Rel(Next.js App Router, Container_Ext_Giscus, "Embeds Comment Widget")
-    Rel(Next.js App Router, Container_Ext_Radix, "Composes Accessible Components")
-    Rel(Velite CMS, Container_Ext_Shiki, "Uses for Code Highlighting")
+    NextJS -->|Imports Generated Types| Velite
+    NextJS -->|Applies Utility Classes| Tailwind
+    NextJS -->|Embeds Comment Widget| Giscus
+    NextJS -->|Composes Accessible Components| Radix
+    Velite -->|Uses for Code Highlighting| Shiki
+
+    style NextJS fill:#438dd5,stroke:#2e6295,color:#fff
+    style Velite fill:#438dd5,stroke:#2e6295,color:#fff
+    style Tailwind fill:#438dd5,stroke:#2e6295,color:#fff
 ```
 
 ### 1.2 Technical Boundaries

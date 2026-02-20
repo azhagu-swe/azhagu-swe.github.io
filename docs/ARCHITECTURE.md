@@ -64,31 +64,33 @@ graph LR
 This diagram shows the high-level technical building blocks within the portfolio system.
 
 ```mermaid
-containerDiagram
-    boundary "Portfolio System Boundary" {
-        Container_Browser(Client SPA, "React 19 + TypeScript", "Browser")
-        Container_Build(Build Pipeline, "Next.js 16 + Velite", "GitHub Actions CI")
-    }
+graph TB
+    subgraph "Portfolio System Boundary"
+        ClientSPA["Client SPA<br/>React 19 + TypeScript<br/>Browser"]
+        BuildPipeline["Build Pipeline<br/>Next.js 16 + Velite<br/>GitHub Actions CI"]
+    end
 
-    Rel(Visitor, Container_Browser, "HTTPS / Browse", "Browser")
-    Rel(Admin, Container_Build, "git push", "HTTPS")
+    subgraph "External Actors"
+        Visitor((Visitor))
+        Admin((Admin / Author))
+    end
 
-    Container_Browser --> Container_Build : "Static Assets (HTML/CSS/JS)"
-    Container_Build --> FileSystem : "Read MDX"
-    Container_Build --> GitHub : "Deploy"
+    subgraph "External Systems"
+        GitHub[GitHub Pages CDN]
+        Giscus[Giscus API]
+        FileSystem[(MDX Files)]
+    end
 
-    boundary "External Systems" {
-        Container_External_GitHub[GitHub Pages CDN]
-        Container_External_Giscus[Giscus API]
-        Container_External_FS[(MDX Files)]
-    }
+    Visitor -->|HTTPS / Browse| ClientSPA
+    Admin -->|git push| BuildPipeline
+    BuildPipeline -->|Static Assets| ClientSPA
+    BuildPipeline -->|Read MDX| FileSystem
+    BuildPipeline -->|Deploy| GitHub
+    ClientSPA -->|Fetch Assets| GitHub
+    ClientSPA -->|Load Comments| Giscus
 
-    Rel(Container_Browser, Container_External_GitHub, "Fetch Assets", "HTTPS")
-    Rel(Container_Browser, Container_External_Giscus, "Load Comments", "postMessage API")
-    Rel(Container_Build, Container_External_FS, "Parse Frontmatter", "File I/O")
-
-    UpdateRelStyle(Visitor, Container_Browser, $offsetY="-40")
-    UpdateRelStyle(Admin, Container_Build, $offsetY="-40")
+    style ClientSPA fill:#438dd5,stroke:#2e6295,color:#fff
+    style BuildPipeline fill:#438dd5,stroke:#2e6295,color:#fff
 ```
 
 ### 2.1 Container Descriptions
