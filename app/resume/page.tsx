@@ -51,12 +51,12 @@ export default function ResumePage() {
                                     className="hover:text-primary transition-colors flex items-center justify-end gap-2 print:text-black print:underline"
                                 >
                                     {link.username}
-                                    <Icon icon={link.icon} className="w-4 h-4 print:hidden" />
+                                    <Icon icon={link.icon} className="w-4 h-4 print:text-gray-700" />
                                 </a>
                             ))}
                             <div className="flex items-center justify-end gap-2">
                                 India
-                                <Icon icon="lucide:map-pin" className="w-4 h-4 print:hidden" />
+                                <Icon icon="lucide:map-pin" className="w-4 h-4 print:text-gray-700" />
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ export default function ResumePage() {
                 {/* Experience */}
                 <section>
                     <div className="flex items-center gap-2 mb-6">
-                        <Icon icon="lucide:briefcase" className="w-6 h-6 text-primary print:hidden" />
+                        <Icon icon="lucide:briefcase" className="w-6 h-6 text-primary print:text-black" />
                         <h2 className="text-2xl font-bold tracking-tight print:text-xl uppercase print:border-b print:w-full print:pb-1">
                             Experience
                         </h2>
@@ -78,7 +78,7 @@ export default function ResumePage() {
                 {/* Skills */}
                 <section className="break-inside-avoid">
                     <div className="flex items-center gap-2 mb-6">
-                        <Icon icon="lucide:cpu" className="w-6 h-6 text-primary print:hidden" />
+                        <Icon icon="lucide:cpu" className="w-6 h-6 text-primary print:text-black" />
                         <h2 className="text-2xl font-bold tracking-tight print:text-xl uppercase print:border-b print:w-full print:pb-1">
                             Technical Skills
                         </h2>
