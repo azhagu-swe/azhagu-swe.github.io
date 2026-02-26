@@ -1,20 +1,20 @@
-import ReactMarkdown from "react-markdown"
-import remarkGfm from "remark-gfm"
-import rehypeSlug from "rehype-slug"
-import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import React from "react"
+import * as runtime from "react/jsx-runtime"
 import { components } from "@/components/mdx-components"
 
 export function CustomMDX({ source }: { source: string }) {
+    const Component = React.useMemo(() => {
+        const fn = new Function("runtime", `
+            return (function() {
+                ${source}
+            })(runtime);
+        `)
+        return fn({ ...runtime }).default
+    }, [source])
+
     return (
-        <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[
-                rehypeSlug,
-                [rehypeAutolinkHeadings, { behavior: "wrap" }],
-            ]}
-            components={components as any}
-        >
-            {source}
-        </ReactMarkdown>
+        <div className="mdx">
+            <Component components={components} />
+        </div>
     )
 }
