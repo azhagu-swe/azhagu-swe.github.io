@@ -11,7 +11,7 @@ import { Separator } from "@/components/ui/separator"
 import { Icon } from "@iconify/react"
 import { Metadata } from "next"
 import Image from "next/image"
-import { DecipherText } from "@/components/ui/decipher-text"
+import { EliteText } from "@/components/ui/elite-text"
 import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
 import { GitHubStats } from "@/components/github-stats"
 import { SafeHighlight } from "@/lib/safe-highlight"
@@ -29,11 +29,10 @@ export default async function AboutPage() {
         <div className="container pt-10 pb-0 max-w-5xl mx-auto space-y-16">
             {/* Header Section */}
             <section className="space-y-4">
-                <DecipherText
+                <EliteText
                     text="About Me"
                     className="font-heading text-4xl font-bold tracking-tight lg:text-5xl"
-                    revealOn="load"
-                    animate={true}
+                    delay={0.1}
                 />
                 <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
                     {EXPERIENCE_DATA.header.subtitle}

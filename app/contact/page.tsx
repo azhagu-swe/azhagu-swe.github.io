@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Icon } from "@iconify/react"
 import { Metadata } from "next"
 import Link from "next/link"
-import { DecipherText } from "@/components/ui/decipher-text"
+import { EliteText } from "@/components/ui/elite-text"
 import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
 import { ContactForm } from "@/components/contact-form"
 
@@ -33,11 +33,10 @@ export default function ContactPage() {
                 {/* Contact Info & Socials */}
                 <div className="space-y-8">
                     <div>
-                        <DecipherText
+                        <EliteText
                             text="Let's Build Something Incredible Together"
                             className="font-heading text-3xl font-bold tracking-tight lg:text-4xl mb-4 block"
-                            revealOn="load"
-                            animate={true}
+                            delay={0.1}
                         />
                         <p className="text-lg text-muted-foreground leading-relaxed">
                             I'm currently available for freelance consulting, high-impact projects, or full-time roles at companies that value performance engineering.

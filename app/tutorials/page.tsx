@@ -2,7 +2,8 @@
 import { getAllPosts } from "@/lib/mdx"
 import { Metadata } from "next"
 import { PostList } from "@/components/content/post-list"
-import { DecipherText } from "@/components/ui/decipher-text"
+import { Badge } from "@/components/ui/badge"
+import { EliteText } from "@/components/ui/elite-text"
 
 export const metadata: Metadata = {
     title: "Tutorials",
@@ -34,11 +35,10 @@ export default async function TutorialsPage() {
             />
             <div className="container pt-10 pb-0 max-w-5xl px-4 md:px-0 mx-auto">
                 <div className="mb-10 text-center">
-                    <DecipherText
+                    <EliteText
                         text="Tutorials"
                         className="font-heading text-4xl tracking-tight lg:text-5xl mb-4 block"
-                        revealOn="load"
-                        animate={true}
+                        delay={0.1}
                     />
                     <p className="text-xl text-muted-foreground">
                         Learn something new.

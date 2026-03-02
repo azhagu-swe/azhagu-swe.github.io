@@ -3,7 +3,7 @@
 import { useEffect, useState, useMemo } from "react"
 import { motion } from "framer-motion"
 import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
-import { DecipherText } from "@/components/ui/decipher-text"
+import { EliteText } from "@/components/ui/elite-text"
 import { Icon } from "@iconify/react"
 import { LUXURY_EASING } from "@/lib/motion"
 
@@ -99,11 +99,10 @@ export function ActivityGraph({ initialData = null }: { initialData?: any[] | nu
                         <Icon icon="mdi:github" className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                        <DecipherText
+                        <EliteText
                             text="Activity"
                             className="text-base font-semibold"
-                            revealOn="inView"
-                            animate={true}
+                            delay={0.1}
                         />
                         <p className="text-[11px] text-muted-foreground">Code commits over time</p>
                     </div>
