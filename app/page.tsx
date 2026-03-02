@@ -4,6 +4,7 @@ import { StatsCard } from "@/components/dashboard/stats-card"
 import { ActivityGraph } from "@/components/dashboard/activity-graph"
 import { RecentWorkList } from "@/components/dashboard/recent-work-list"
 import { TestimonialsSection } from "@/components/testimonials-section"
+import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
 import { AchievementHighlights } from "@/components/social-proof"
 import { STATS_DATA } from "@/lib/data"
 import { getGitHubEvents } from "@/lib/github"
@@ -80,7 +81,7 @@ export default async function Home() {
           <ActivityGraph initialData={githubEvents} />
 
           {/* Quick Actions with Enhanced Styling */}
-          <div className="rounded-2xl border border-border/50 bg-card/30 p-6 backdrop-blur-md flex-1 min-h-[200px]">
+          <MatrixWrapper className="rounded-2xl border border-border/50 bg-card/30 p-6 backdrop-blur-md h-fit">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
               <span className="p-1.5 rounded-lg bg-primary/10">
                 <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -119,7 +120,7 @@ export default async function Home() {
                 <span className="text-xs font-medium">Blog</span>
               </Link>
             </div>
-          </div>
+          </MatrixWrapper>
         </div>
       </div>
     </div>

@@ -91,7 +91,7 @@ export function ActivityGraph({ initialData = null }: { initialData?: any[] | nu
     const maxContributions = Math.max(...weeklyData.map(d => d.contributions), 1)
 
     return (
-        <MatrixWrapper className="relative h-full w-full rounded-2xl border border-border/50 bg-card/30 p-5 backdrop-blur-md">
+        <MatrixWrapper className="relative h-fit w-full rounded-2xl border border-border/50 bg-card/30 p-5 backdrop-blur-md">
             {/* Header Row */}
             <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
