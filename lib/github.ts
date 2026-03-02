@@ -19,7 +19,6 @@ export async function getGitHubStats(username: string) {
                 ...(process.env.GITHUB_TOKEN && { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }),
                 "Accept": "application/vnd.github.v3+json",
             },
-            next: { revalidate: 3600 } // Cache for 1 hour
         });
 
         if (res.status === 403 || res.status === 429) {
@@ -50,7 +49,6 @@ export async function getGitHubEvents(username: string) {
                 ...(process.env.GITHUB_TOKEN && { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }),
                 "Accept": "application/vnd.github.v3+json",
             },
-            next: { revalidate: 1800 } // Cache for 30 mins
         });
 
         if (res.status === 403 || res.status === 429) {

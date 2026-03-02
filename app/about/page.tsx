@@ -15,13 +15,16 @@ import { DecipherText } from "@/components/ui/decipher-text"
 import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
 import { GitHubStats } from "@/components/github-stats"
 import { SafeHighlight } from "@/lib/safe-highlight"
+import { getGitHubStats } from "@/lib/github"
 
 export const metadata: Metadata = {
     title: "About | Alagappan P",
     description: "Learn more about my experience, skills, and journey.",
 }
 
-export default function AboutPage() {
+export default async function AboutPage() {
+    const githubStats = await getGitHubStats("azhagu-swe")
+
     return (
         <div className="container pt-10 pb-0 max-w-5xl mx-auto space-y-16">
             {/* Header Section */}
@@ -120,7 +123,7 @@ export default function AboutPage() {
                     <Icon icon="lucide:git-branch" className="w-6 h-6 text-primary" />
                     <h2 className="text-2xl font-bold tracking-tight">Open Source Activity</h2>
                 </div>
-                <GitHubStats username="azhagu-swe" />
+                <GitHubStats username="azhagu-swe" initialData={githubStats} />
             </section>
 
             <Separator />

@@ -1,12 +1,11 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 import { motion } from "framer-motion"
 import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
 import { DecipherText } from "@/components/ui/decipher-text"
 import { Icon } from "@iconify/react"
 import { LUXURY_EASING } from "@/lib/motion"
-import { fetchGitHubEventsAction } from "@/lib/actions"
 
 interface WeekData {
     week: string
@@ -20,74 +19,74 @@ function getWeekLabel(date: Date): string {
     return `${months[date.getMonth()]} ${Math.ceil(date.getDate() / 7)}`
 }
 
-export function ActivityGraph() {
-    const [weeklyData, setWeeklyData] = useState<WeekData[]>([])
-    const [totalContributions, setTotalContributions] = useState(0)
-    const [loading, setLoading] = useState(true)
+function processGitHubEvents(events: any[]): { data: WeekData[], total: number } {
+    if (!events || !Array.isArray(events)) {
+        return { data: [], total: 0 }
+    }
+
+    // Group by week
+    const weekMap = new Map<string, number>()
+    const today = new Date()
+
+    // Initialize last 12 weeks
+    for (let i = 0; i < 12; i++) {
+        const weekStart = new Date(today)
+        weekStart.setDate(weekStart.getDate() - (i * 7))
+        const weekLabel = getWeekLabel(weekStart)
+        weekMap.set(weekLabel, 0)
+    }
+
+    // Count events per week
+    let total = 0
+    events.forEach((event: { created_at: string }) => {
+        const eventDate = new Date(event.created_at)
+        const weekLabel = getWeekLabel(eventDate)
+        if (weekMap.has(weekLabel)) {
+            weekMap.set(weekLabel, (weekMap.get(weekLabel) || 0) + 1)
+            total++
+        }
+    })
+
+    const data = Array.from(weekMap.entries())
+        .map(([week, contributions]) => ({ week, contributions }))
+        .reverse()
+
+    return { data, total }
+}
+
+function generateMockWeeklyData() {
+    const data: WeekData[] = []
+    const today = new Date()
+    for (let i = 11; i >= 0; i--) {
+        const weekStart = new Date(today)
+        weekStart.setDate(weekStart.getDate() - (i * 7))
+        data.push({
+            week: getWeekLabel(weekStart),
+            contributions: Math.floor(Math.random() * 15) + 1,
+        })
+    }
+    return { data, total: data.reduce((sum, d) => sum + d.contributions, 0) }
+}
+
+export function ActivityGraph({ initialData = null }: { initialData?: any[] | null }) {
+    const { data: processedData, total: processedTotal } = useMemo(() => {
+        if (initialData) {
+            return processGitHubEvents(initialData)
+        }
+        return generateMockWeeklyData()
+    }, [initialData])
+
+    const [weeklyData, setWeeklyData] = useState<WeekData[]>(processedData)
+    const [totalContributions, setTotalContributions] = useState(processedTotal)
+    const [loading, setLoading] = useState(!initialData)
 
     useEffect(() => {
-        function generateMockData() {
-            const data: WeekData[] = []
-            const today = new Date()
-            for (let i = 11; i >= 0; i--) {
-                const weekStart = new Date(today)
-                weekStart.setDate(weekStart.getDate() - (i * 7))
-                data.push({
-                    week: getWeekLabel(weekStart),
-                    contributions: Math.floor(Math.random() * 15) + 1,
-                })
-            }
-            setWeeklyData(data)
-            setTotalContributions(data.reduce((sum, d) => sum + d.contributions, 0))
+        if (initialData) {
+            setWeeklyData(processedData)
+            setTotalContributions(processedTotal)
         }
-
-        async function loadGitHubData() {
-            try {
-                const events = await fetchGitHubEventsAction(GITHUB_USERNAME)
-
-                if (events && Array.isArray(events)) {
-                    // Group by week
-                    const weekMap = new Map<string, number>()
-                    const today = new Date()
-
-                    // Initialize last 12 weeks
-                    for (let i = 0; i < 12; i++) {
-                        const weekStart = new Date(today)
-                        weekStart.setDate(weekStart.getDate() - (i * 7))
-                        const weekLabel = getWeekLabel(weekStart)
-                        weekMap.set(weekLabel, 0)
-                    }
-
-                    // Count events per week
-                    let total = 0
-                    events.forEach((event: { created_at: string }) => {
-                        const eventDate = new Date(event.created_at)
-                        const weekLabel = getWeekLabel(eventDate)
-                        if (weekMap.has(weekLabel)) {
-                            weekMap.set(weekLabel, (weekMap.get(weekLabel) || 0) + 1)
-                            total++
-                        }
-                    })
-
-                    const data = Array.from(weekMap.entries())
-                        .map(([week, contributions]) => ({ week, contributions }))
-                        .reverse()
-
-                    setWeeklyData(data)
-                    setTotalContributions(total)
-                } else {
-                    generateMockData()
-                }
-            } catch (error) {
-                console.error("Failed to load GitHub data:", error)
-                generateMockData()
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        loadGitHubData()
-    }, [])
+        setLoading(false)
+    }, [initialData, processedData, processedTotal])
 
     const maxContributions = Math.max(...weeklyData.map(d => d.contributions), 1)
 

@@ -3,38 +3,26 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Icon } from "@iconify/react"
-import { fetchGitHubStatsAction } from "@/lib/actions"
-
-interface GitHubStats {
-    public_repos: number
-    followers: number
-    following: number
-    contributions?: number
-}
+import { type GitHubStats as GitHubStatsType } from "@/lib/github"
 
 // GitHub Stats Component - Trust Signal for Authority Bias
-export function GitHubStats({ username = "azhagu-swe" }: { username?: string }) {
-    const [stats, setStats] = useState<GitHubStats | null>(null)
-    const [loading, setLoading] = useState(true)
+export function GitHubStats({
+    username = "azhagu-swe",
+    initialData = null
+}: {
+    username?: string,
+    initialData?: GitHubStatsType | null
+}) {
+    const [stats, setStats] = useState<GitHubStatsType | null>(initialData)
+    const [loading, setLoading] = useState(!initialData)
 
     useEffect(() => {
-        async function loadStats() {
-            try {
-                const data = await fetchGitHubStatsAction(username)
-                if (data) {
-                    setStats(data)
-                } else {
-                    // Fallback for rate limiting or errors
-                    setStats({ public_repos: 10, followers: 5, following: 3 })
-                }
-            } catch (error) {
-                console.error("Failed to load GitHub stats:", error)
-            } finally {
-                setLoading(false)
-            }
-        }
-        loadStats()
-    }, [username])
+        if (initialData) return;
+
+        // In static export, we usually want this data at build time, 
+        // but we can keep a client-side fallback if needed (without token/cors issues allowing)
+        setLoading(false)
+    }, [initialData])
 
     if (loading) {
         return (

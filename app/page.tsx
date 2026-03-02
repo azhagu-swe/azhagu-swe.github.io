@@ -6,8 +6,12 @@ import { RecentWorkList } from "@/components/dashboard/recent-work-list"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { AchievementHighlights } from "@/components/social-proof"
 import { STATS_DATA } from "@/lib/data"
+import { getGitHubEvents } from "@/lib/github"
 
-export default function Home() {
+export default async function Home() {
+  // Fetch GitHub data at build time
+  const githubEvents = await getGitHubEvents("azhagu-swe")
+
   // Enhanced Stats with Power Metrics - Psychology: Specific numbers = credibility
   const powerStats = {
     latencyReduction: "40%",
@@ -73,7 +77,7 @@ export default function Home() {
 
         {/* Sidebar Area (1 col) */}
         <div className="flex flex-col gap-6">
-          <ActivityGraph />
+          <ActivityGraph initialData={githubEvents} />
 
           {/* Quick Actions with Enhanced Styling */}
           <div className="rounded-2xl border border-border/50 bg-card/30 p-6 backdrop-blur-md flex-1 min-h-[200px]">
