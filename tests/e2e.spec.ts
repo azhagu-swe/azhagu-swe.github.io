@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Portfolio E2E Tests', () => {
     test('should load home page correctly', async ({ page }) => {
         await page.goto('/');
-        await expect(page).toHaveTitle(/Alagappan P | Full-Stack Developer/);
+        await expect(page).toHaveTitle(/Alagappan P | High-Performance System Architect/);
 
         // Verify "Hire Me" button exists
         // Using getByText is often safer for complex buttons

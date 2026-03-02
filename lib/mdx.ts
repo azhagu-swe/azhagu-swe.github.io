@@ -7,19 +7,17 @@ export type { Post, Project, Tutorial } from '@/.velite'
 export function getPostSlugs(type: 'blog' | 'tutorials' | 'projects' = 'blog'): string[] {
     if (type === 'projects') return projects.map(p => p.slugAsParams)
     const data = type === 'blog' ? posts : tutorials
-    // @ts-ignore
-    return data.map((p) => p.slugAsParams)
+    return (data as any[]).map((p) => p.slugAsParams)
 }
 
 export async function getAllPosts(type: 'blog' | 'tutorials' = 'blog'): Promise<Post[]> {
     const data = type === 'blog' ? posts : tutorials
-    return data
+    return (data as any[])
         .filter(post => process.env.NODE_ENV === 'development' || post.published)
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
         .map(post => ({
             ...post,
             slug: post.slugAsParams,
-            readingTime: "5 min read", // Velite can compute this, but for now hardcoded or added to schema
             frontmatter: {
                 title: post.title,
                 description: post.description || "",
@@ -28,20 +26,19 @@ export async function getAllPosts(type: 'blog' | 'tutorials' = 'blog'): Promise<
                 image: post.image,
                 author: "Alagappan P"
             },
-            content: post.body // Velite returns compiled MDX or raw string depending on config. s.mdx() returns compiled code.
-        })) as unknown as Post[]
+            content: post.body,
+            readingTime: post.readingTime
+        })) as Post[]
 }
 
 export async function getPostBySlug(slug: string, type: 'blog' | 'tutorials' = 'blog'): Promise<Post | null> {
     const data = type === 'blog' ? posts : tutorials
-    // @ts-ignore - Velite types might not be perfectly aligned in array union, but structure is similar enough
-    const post = data.find(p => p.slugAsParams === slug)
+    const post = (data as any[]).find(p => p.slugAsParams === slug)
     if (!post) return null
 
     return {
         ...post,
         slug: post.slugAsParams,
-        readingTime: "5 min read",
         frontmatter: {
             title: post.title,
             description: post.description || "",
@@ -50,8 +47,9 @@ export async function getPostBySlug(slug: string, type: 'blog' | 'tutorials' = '
             image: post.image,
             author: "Alagappan P"
         },
-        content: post.body
-    } as unknown as Post
+        content: post.body,
+        readingTime: post.readingTime
+    } as Post
 }
 
 export async function getRelatedPosts(currentSlug: string, tags: string[], limit: number = 3): Promise<Post[]> {

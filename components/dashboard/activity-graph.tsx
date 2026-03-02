@@ -6,6 +6,7 @@ import { MatrixWrapper } from "@/components/ui/matrix-wrapper"
 import { DecipherText } from "@/components/ui/decipher-text"
 import { Icon } from "@iconify/react"
 import { LUXURY_EASING } from "@/lib/motion"
+import { fetchGitHubEventsAction } from "@/lib/actions"
 
 interface WeekData {
     week: string
@@ -14,19 +15,37 @@ interface WeekData {
 
 const GITHUB_USERNAME = "azhagu-swe"
 
+function getWeekLabel(date: Date): string {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    return `${months[date.getMonth()]} ${Math.ceil(date.getDate() / 7)}`
+}
+
 export function ActivityGraph() {
     const [weeklyData, setWeeklyData] = useState<WeekData[]>([])
     const [totalContributions, setTotalContributions] = useState(0)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        async function fetchGitHubData() {
-            try {
-                // Fetch recent events
-                const eventsRes = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events?per_page=100`)
-                if (eventsRes.ok) {
-                    const events = await eventsRes.json()
+        function generateMockData() {
+            const data: WeekData[] = []
+            const today = new Date()
+            for (let i = 11; i >= 0; i--) {
+                const weekStart = new Date(today)
+                weekStart.setDate(weekStart.getDate() - (i * 7))
+                data.push({
+                    week: getWeekLabel(weekStart),
+                    contributions: Math.floor(Math.random() * 15) + 1,
+                })
+            }
+            setWeeklyData(data)
+            setTotalContributions(data.reduce((sum, d) => sum + d.contributions, 0))
+        }
 
+        async function loadGitHubData() {
+            try {
+                const events = await fetchGitHubEventsAction(GITHUB_USERNAME)
+
+                if (events && Array.isArray(events)) {
                     // Group by week
                     const weekMap = new Map<string, number>()
                     const today = new Date()
@@ -56,36 +75,18 @@ export function ActivityGraph() {
 
                     setWeeklyData(data)
                     setTotalContributions(total)
+                } else {
+                    generateMockData()
                 }
             } catch (error) {
-                console.error("Failed to fetch GitHub data:", error)
+                console.error("Failed to load GitHub data:", error)
                 generateMockData()
             } finally {
                 setLoading(false)
             }
         }
 
-        function getWeekLabel(date: Date): string {
-            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-            return `${months[date.getMonth()]} ${Math.ceil(date.getDate() / 7)}`
-        }
-
-        function generateMockData() {
-            const data: WeekData[] = []
-            const today = new Date()
-            for (let i = 11; i >= 0; i--) {
-                const weekStart = new Date(today)
-                weekStart.setDate(weekStart.getDate() - (i * 7))
-                data.push({
-                    week: getWeekLabel(weekStart),
-                    contributions: Math.floor(Math.random() * 15) + 1,
-                })
-            }
-            setWeeklyData(data)
-            setTotalContributions(data.reduce((sum, d) => sum + d.contributions, 0))
-        }
-
-        fetchGitHubData()
+        loadGitHubData()
     }, [])
 
     const maxContributions = Math.max(...weeklyData.map(d => d.contributions), 1)

@@ -22,7 +22,10 @@ const posts = defineCollection({
             image: s.string().optional(),
             body: s.mdx(),
         })
-        .transform(computedFields),
+        .transform((data) => ({
+            ...computedFields(data),
+            readingTime: '5 min read',
+        })),
 })
 
 const projects = defineCollection({
@@ -44,7 +47,10 @@ const projects = defineCollection({
                 description: s.string()
             }).optional()
         })
-        .transform(computedFields),
+        .transform((data) => ({
+            ...computedFields(data),
+            readingTime: '5 min read',
+        })),
 })
 
 const tutorials = defineCollection({
@@ -61,7 +67,10 @@ const tutorials = defineCollection({
             image: s.string().optional(),
             body: s.mdx(),
         })
-        .transform(computedFields),
+        .transform((data) => ({
+            ...computedFields(data),
+            readingTime: '5 min read',
+        })),
 })
 
 export default defineConfig({

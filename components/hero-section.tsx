@@ -156,14 +156,13 @@ export function HeroSection() {
                     <div className="absolute -inset-4 rounded-full border-2 border-primary/30 border-t-primary/70 w-[calc(100%+32px)] h-[calc(100%+32px)] animate-[spin_8s_linear_infinite]" />
                     <div className="absolute -inset-8 rounded-full border border-primary/15 border-b-primary/50 w-[calc(100%+64px)] h-[calc(100%+64px)] animate-[spin_12s_linear_infinite_reverse]" />
 
-                    {/* Status Badge */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.8, duration: 0.3, type: "spring" }}
                         className="absolute -bottom-2 -right-2 md:bottom-4 md:right-0 px-4 py-2 rounded-xl bg-card border-2 border-primary/50 shadow-lg backdrop-blur-sm"
                     >
-                        <span className="text-xs font-semibold text-primary">@ Infosys</span>
+                        <span className="text-xs font-bold text-primary tracking-tight">ARCHITECT @ INFOSYS</span>
                     </motion.div>
                 </motion.div>
             </div>

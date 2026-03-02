@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Icon } from "@iconify/react"
+import { fetchGitHubStatsAction } from "@/lib/actions"
 
 interface GitHubStats {
     public_repos: number
@@ -17,28 +18,22 @@ export function GitHubStats({ username = "azhagu-swe" }: { username?: string }) 
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        async function fetchStats() {
+        async function loadStats() {
             try {
-                const res = await fetch(`https://api.github.com/users/${username}`)
-                if (res.status === 403) {
-                    // Rate limited — fail gracefully
-                    console.warn("GitHub API rate limited. Showing fallback stats.")
+                const data = await fetchGitHubStatsAction(username)
+                if (data) {
+                    setStats(data)
+                } else {
+                    // Fallback for rate limiting or errors
                     setStats({ public_repos: 10, followers: 5, following: 3 })
-                } else if (res.ok) {
-                    const data = await res.json()
-                    setStats({
-                        public_repos: data.public_repos,
-                        followers: data.followers,
-                        following: data.following,
-                    })
                 }
             } catch (error) {
-                console.error("Failed to fetch GitHub stats:", error)
+                console.error("Failed to load GitHub stats:", error)
             } finally {
                 setLoading(false)
             }
         }
-        fetchStats()
+        loadStats()
     }, [username])
 
     if (loading) {

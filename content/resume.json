@@ -1,0 +1,118 @@
+{
+    "personalInfo": {
+        "name": "Alagappan P",
+        "email": "azhagu.swe@gmail.com",
+        "phone": "",
+        "linkedin": "https://linkedin.com/in/azhagu-swe/",
+        "github": "https://github.com/azhagu-swe",
+        "website": "https://azhagu-swe.github.io",
+        "location": "Chennai, Tamil Nadu, India"
+    },
+    "summary": "High-Performance System Architect with 3.5+ years of experience building scalable, high-throughput backend ecosystems. Expert in Spring Boot microservices, Redis-driven performance optimization (40% latency reduction), and geohash engineering for 1M+ active devices. Currently architecting secure banking solutions at Infosys with a focus on systemic efficiency and low-latency financial architecture.",
+    "experience": [
+        {
+            "title": "High-Performance System Architect",
+            "company": "Infosys",
+            "location": "Chennai, TN",
+            "duration": "Nov 2025 - Present",
+            "sector": "Banking",
+            "responsibilities": [
+                "Spearheading core Banking microservices development using Java 8+ and Spring Boot, focusing on transaction atomicity, multi-threading, and secure financial processing.",
+                "Architecting high-throughput RESTful APIs designed for financial data integrity and sub-second response times in high-concurrency environments.",
+                "Collaborating in an Agile squad to modernize legacy payment systems, utilizing JFrog Artifactory for secure binary management and Splunk for real-time monitoring and log analytics.",
+                "Utilizing AI-augmented coding tools (GitHub Copilot) to streamline unit testing and achieve 80%+ code coverage."
+            ],
+            "techStack": [
+                "Java 17",
+                "Spring Boot 3",
+                "Microservices",
+                "Kubernetes",
+                "React",
+                "JFrog",
+                "Splunk"
+            ]
+        },
+        {
+            "title": "Software Developer",
+            "company": "MEmob Plus Pvt Ltd",
+            "location": "Chennai, TN",
+            "duration": "Aug 2022 - Oct 2025",
+            "responsibilities": [
+                "Optimized distributed microservices, achieving a 35% reduction in API latency through strategic Redis caching, SQL indexing, and query re-engineering.",
+                "Architected a unified audience management service integrating Meta, Snapchat, and TikTok marketing APIs, processing millions of daily data points.",
+                "Modernized legacy monolithic systems by re-architecting critical APIs into microservices, improving system scalability and user experience metrics by 20%.",
+                "Developed a specialized proximity hash algorithm in Java, significantly increasing location-targeting accuracy for geospatial marketing campaigns.",
+                "Built high-performance dashboards with Next.js and React, improving Core Web Vitals and load times by 25%.",
+                "Established automated code quality gates using SonarQube, identifying and resolving 100+ critical vulnerabilities pre-production."
+            ],
+            "techStack": [
+                "Java",
+                "Spring Boot",
+                "Redis",
+                "RabbitMQ",
+                "PostgreSQL",
+                "Next.js",
+                "OAuth 2.0",
+                "Mapbox",
+                "SonarQube"
+            ]
+        }
+    ],
+    "skills": {
+        "languages": [
+            "Java",
+            "SQL",
+            "JavaScript",
+            "TypeScript",
+            "HTML",
+            "CSS"
+        ],
+        "backend": [
+            "Spring Boot",
+            "Spring MVC",
+            "Hibernate",
+            "Microservices",
+            "RabbitMQ",
+            "Redis",
+            "REST APIs"
+        ],
+        "frontend": [
+            "React.js",
+            "Next.js",
+            "Tailwind CSS",
+            "MUI",
+            "Shadcn UI",
+            "Mapbox"
+        ],
+        "tools": [
+            "AWS",
+            "Docker",
+            "Git",
+            "SonarQube",
+            "Maven",
+            "JFrog",
+            "Splunk",
+            "GitHub Copilot"
+        ]
+    },
+    "education": [
+        {
+            "degree": "Master of Science (M.Sc) in Computer Science",
+            "institution": "H.H. The Rajah's College, Pudukottai",
+            "duration": "2018 - 2020",
+            "percentage": "74%"
+        },
+        {
+            "degree": "Bachelor of Science (B.Sc) in Computer Science",
+            "institution": "H.H. The Rajah's College, Pudukottai",
+            "duration": "2015 - 2018",
+            "percentage": "71%"
+        }
+    ],
+    "achievements": [
+        "Second Prize in National College Debugging Competition at Trichy.",
+        "Full Stack Java Development Certification - Simplilearn",
+        "ChatGPT Advanced Certification - Simplilearn",
+        "Prompt Engineering Certification - Simplilearn"
+    ]
+}

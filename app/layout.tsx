@@ -11,6 +11,7 @@ import { PwaRegister } from "@/components/pwa-register";
 import { InstallPrompt } from "@/components/pwa/install-prompt";
 import { CommandMenu } from "@/components/command-menu";
 import { getAllPosts, getAllProjects } from "@/lib/mdx";
+import { SystemBoot } from "@/components/ui/system-boot";
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
@@ -19,7 +20,7 @@ const jsonLd = {
   "@type": "Person",
   name: "Alagappan P",
   url: "https://azhagu-swe.github.io",
-  jobTitle: "Full Stack Developer",
+  jobTitle: "High-Performance System Architect",
   sameAs: [
     "https://github.com/azhagu-swe",
     "https://www.linkedin.com/in/azhagu-swe/",
@@ -30,8 +31,8 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://azhagu-swe.github.io"),
-  title: "Alagappan P | Full-Stack Developer",
-  description: "Full-Stack Java Developer specializing in high-performance microservices. Reduced API latency by 40% • Built systems serving 1M+ devices.",
+  title: "Alagappan P | High-Performance System Architect",
+  description: "High-Performance System Architect specializing in scalable microservices. Reduced API latency by 40% • Built systems serving 1M+ devices.",
   icons: {
     icon: [
       { media: '(prefers-color-scheme: light)', url: '/favicon/light/favicon.ico', href: '/favicon/light/favicon.ico' },
@@ -39,8 +40,8 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Alagappan P | Full-Stack Developer",
-    description: "Full-Stack Java Developer — 40% API Latency Reduction • 1M+ Devices Powered • 3+ Years Experience",
+    title: "Alagappan P | High-Performance System Architect",
+    description: "High-Performance System Architect — 40% API Latency Reduction • 1M+ Devices Powered • 3+ Years Experience",
     url: "https://azhagu-swe.github.io",
     siteName: "Alagappan P Portfolio",
     images: [
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
         url: "/image/portfolio.webp",
         width: 1200,
         height: 630,
-        alt: "Alagappan P — Full-Stack Java Developer Portfolio",
+        alt: "Alagappan P — High-Performance System Architect",
       },
     ],
     locale: "en_US",
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alagappan P | Full-Stack Developer",
+    title: "Alagappan P | High-Performance System Architect",
     description: "Full-Stack Java Developer — 40% API Latency Reduction • 1M+ Devices Powered",
     images: ["/image/portfolio.webp"],
     creator: "@azhagu_swe",
@@ -93,8 +94,9 @@ export default async function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-          themes={["light", "dark"]}
+          themes={["light", "dark", "abyss", "paper"]}
         >
+          <SystemBoot />
           <FaviconManager />
           <CommandMenu posts={posts} />
           <MainLayout footer={<Footer />}>{children}</MainLayout>

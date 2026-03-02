@@ -9,11 +9,11 @@ export const BASE_URLS = {
 // Shared constants to avoid duplication
 const SHARED_TEXT = {
     NAME: "Alagappan P",
-    ROLE: "Full-Stack Java Developer @ Infosys",
-    TAGLINE: "I Ship 40% Faster APIs",
-    BIO: "I architect backend systems that companies rely on to move faster. From reducing API latency by 40% with Redis optimization to building geohash engines powering 1M+ devices—I don't just write code, I eliminate bottlenecks.",
-    SHORT_BIO: "Full-Stack Java Developer specializing in high-performance microservices. Reduced API latency by 40% • Built systems serving 1M+ devices ",
-    ORIGIN_STORY: "I became a developer because I couldn't stand inefficiency. That drive led me to win 2nd place in a national debugging competition and build systems that handle millions of requests.",
+    ROLE: "High-Performance System Architect @ Infosys",
+    TAGLINE: "I Architect Systems That Scale & Ship 40% Faster",
+    BIO: "I architect high-throughput backend ecosystems that companies rely on to scale without friction. From slashing API latency by 40% via strategic caching to engineering geohash engines powering 1M+ active devices—I don't just write code, I eliminate systemic bottlenecks.",
+    SHORT_BIO: "High-Performance System Architect specializing in scalable microservices. Reduced API latency by 40% • Engineered systems serving 1M+ devices.",
+    ORIGIN_STORY: "I became a developer because I couldn't stand inefficiency. That drive led me to win 2nd place in a national debugging competition and now I architect systems that handle millions of requests with sub-second precision.",
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
@@ -86,9 +86,9 @@ export const HERO_DATA = {
     ],
     description: SHARED_TEXT.BIO,
     buttons: {
-        primary: "Hire Me for Your Next Project",
-        secondary: "View My Work",
-        resume: "View Interactive Resume",
+        primary: "Request a System Audit",
+        secondary: "Explore Case Studies",
+        resume: "View Technical Blueprint (Resume)",
     },
     images: {
         profile: BASE_URLS.PROFILE_IMAGE,
@@ -96,8 +96,8 @@ export const HERO_DATA = {
     },
     availability: {
         status: "Available",
-        period: "Weekdays 6-9 AM & 6-9 PM • Weekends 9 AM-9 PM",
-        message: "Open for freelance projects",
+        period: "Exclusive slots for Q2 2026",
+        message: "Consulting for high-impact projects",
     },
 };
 
@@ -113,13 +113,13 @@ export const SOCIAL_PROOF_DATA = {
             quote: "Alagappan's proximity hash algorithm improved our targeting accuracy by 15%. His attention to performance is exceptional.",
             author: "Tech Lead",
             company: "Memob Plus",
-            avatar: "/image/avatar-placeholder.png",
+            avatar: "/image/logos/memob.svg",
         },
         {
             quote: "He reduced our API response time from 200ms to 60ms. The Redis caching strategy he implemented was game-changing.",
             author: "Senior Software Engineer",
             company: "Memob Plus",
-            avatar: "/image/avatar-placeholder.png",
+            avatar: "/image/logos/memob.svg",
         },
     ],
 };
@@ -155,20 +155,20 @@ export const SKILLS_DATA: SkillCategory[] = [
         skills: "Java (Core 8+), SQL, JavaScript, HTML, CSS, TypeScript",
     },
     {
-        title: "Frameworks & Technologies",
-        skills: "Spring Boot, Spring MVC, Spring Data JPA, Hibernate, RESTful APIs, Microservices, RabbitMQ, Redis, React.js, Next.js",
+        title: "Frameworks & Backend",
+        skills: "Spring Boot, Spring MVC, Spring Data JPA, Hibernate, RESTful APIs, Microservices, RabbitMQ, Redis, Next.js",
     },
     {
         title: "Databases",
         skills: "PostgreSQL, MySQL",
     },
     {
-        title: "Tools & Platforms",
-        skills: "Git, IntelliJ IDEA, VS Code, Maven, Docker (Basic), Windows, Ubuntu, Qwen CLI, Google Gemini CLI",
+        title: "Tools & DevOps",
+        skills: "Git, IntelliJ IDEA, Maven, Docker, JFrog Artifactory, Splunk, SonarQube, Windows, Ubuntu",
     },
     {
-        title: "AI & Development Tools",
-        skills: "Qwen CLI for code generation and optimization, Google Gemini CLI for AI-assisted development, Prompt Engineering",
+        title: "AI & Development",
+        skills: "GitHub Copilot, Qwen CLI, Google Gemini CLI, Prompt Engineering",
     },
 ];
 
@@ -225,16 +225,15 @@ export const EXPERIENCE_DATA = {
     },
     roles: [
         {
-            title: "Full Stack Java Developer",
+            title: "High-Performance System Architect",
             company: "Infosys",
             duration: "Nov 2025 – Present",
             location: "Chennai, Tamil Nadu, India",
             responsibilities: [
-                "Architecting microservices handling <strong>50K+ requests/minute</strong> with 99.9% uptime guarantee.",
-                "Reduced deployment pipeline from <strong>4 hours to 15 minutes</strong> through CI/CD optimization.",
-                "Leading migration from monolithic architecture to event-driven microservices.",
-                "Mentoring junior developers on Spring Boot best practices and code review standards.",
-                "Implementing OAuth 2.0 security layer for enterprise-grade APIs.",
+                "Spearheading core <strong>Banking microservices</strong> development using Java 17 and Spring Boot, focusing on transaction atomicity, multi-threading, and secure financial processing.",
+                "Architecting high-throughput <strong>RESTful APIs</strong> designed for financial data integrity and sub-second response times (99.9% uptime).",
+                "Collaborating in an Agile squad to modernize legacy payment systems, utilizing <strong>JFrog Artifactory</strong> and <strong>Splunk</strong> for real-time monitoring.",
+                "Utilizing AI-augmented coding tools (GitHub Copilot) to streamline unit testing and achieve <strong>80%+ code coverage</strong>.",
             ],
             techStack: [
                 "Java 17",
@@ -242,20 +241,22 @@ export const EXPERIENCE_DATA = {
                 "Microservices",
                 "Kubernetes",
                 "React",
+                "JFrog",
+                "Splunk"
             ],
         },
         {
             title: "Software Developer",
-            company: "Memob Plus Pvt Ltd",
+            company: "MEmob Plus Pvt Ltd",
             duration: "Aug 2022 – Oct 2025",
             location: "Chennai, Tamil Nadu",
             responsibilities: [
-                "Built <strong>Geohash Proximity Engine</strong> powering <strong>1M+ device</strong> location targeting with 20% faster performance than Python predecessor.",
-                "Cut API latency by <strong>40%</strong> (200ms → 60ms) via strategic Redis caching architecture.",
+                "Optimized distributed microservices, achieving a <strong>40% reduction in API latency</strong> (200ms → 60ms) via strategic Redis caching architecture.",
+                "Architected a <strong>unified audience management service</strong> integrating Meta, Snapchat, and TikTok APIs, processing millions of daily data points.",
                 "Improved PostgreSQL query performance by <strong>35%</strong> through indexing and query optimization.",
-                "Architected unified audience management service integrating <strong>Meta, Snapchat, and TikTok</strong> APIs.",
+                "Developed a specialized <strong>proximity hash algorithm</strong> in Java, increasing location-targeting accuracy for 1M+ devices.",
                 "Modernized legacy UI to Next.js, reducing page load time by <strong>60%</strong>.",
-                "Designed RESTful APIs serving <strong>10K+ requests/second</strong> with sub-100ms response times.",
+                "Established automated code quality gates using <strong>SonarQube</strong>, resolve 100+ critical vulnerabilities.",
             ],
             techStack: [
                 "Java",
@@ -266,6 +267,7 @@ export const EXPERIENCE_DATA = {
                 "Next.js",
                 "OAuth 2.0",
                 "Mapbox",
+                "SonarQube"
             ],
         },
     ],
@@ -302,7 +304,7 @@ export const TECH_ICONS = {
 
 export const HOME_DATA = {
     hero: {
-        description: "I architect pixel-perfect, accessible web applications that drive user engagement. Leveraging Next.js and modern UI libraries, I deliver robust full-stack solutions.",
+        description: "I architect high-throughput backend ecosystems that companies rely on to scale without friction. I don't just write code, I eliminate systemic bottlenecks.",
     },
     theme: {
         title: "Theme System",
@@ -328,20 +330,20 @@ export const HOME_DATA = {
 
 export const PAGES_DATA = {
     projects: {
-        title: "Projects",
+        title: "Case Studies",
         metadata: {
-            title: "Projects",
-            description: "Showcase of my work.",
+            title: "Engineering Case Studies | System Architect",
+            description: "Deep dives into high-performance systems, 40% latency reductions, and large-scale algorithms.",
         },
-        description: "A gallery of my experiments, tools, and apps.",
+        description: "Technical breakdowns of how I solve complex engineering challenges.",
     },
     blog: {
-        title: "Blog",
+        title: "Architect's Log",
         metadata: {
-            title: "Blog",
-            description: "Read my thoughts on software development.",
+            title: "Architect's Log | Technical Insights",
+            description: "Deep dives into backend architecture, performance optimization, and elite development workflows.",
         },
-        description: "Thoughts, stories, and ideas.",
+        description: "Insights on engineering scalability and performance.",
     }
 };
 
