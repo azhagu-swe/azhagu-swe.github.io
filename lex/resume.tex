@@ -1,0 +1,186 @@
+%-------------------------
+% Resume in Latex
+% Author : Alagappan P
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage[most]{tcolorbox}
+\input{glyphtounicode}
+
+% Brand Colors (Emerald Cyber)
+\definecolor{PrimaryEmerald}{HTML}{2ECC71}
+\definecolor{AccentEmerald}{HTML}{10B981}
+\definecolor{LightEmerald}{HTML}{E8F9F0}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting with icons
+\newcommand{\sectionicon}[1]{\textcolor{PrimaryEmerald}{\faIcon{#1}}}
+
+\titleformat{\section}{
+  \vspace{-10pt}\scshape\raggedright\large\color{PrimaryEmerald}
+}{}{0em}{}[\color{PrimaryEmerald}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape \color{AccentEmerald} Alagappan P} \\ \vspace{2pt}
+    \small 
+    \textcolor{AccentEmerald}{\faPhone\ } $|$ 
+    \href{mailto:azhagu.swe@gmail.com}{\color{AccentEmerald}\faEnvelope\ azhagu.swe@gmail.com} $|$ 
+    \href{https://linkedin.com/in/azhagu-swe/}{\color{AccentEmerald}\faLinkedin\ @azhagu-swe} $|$ 
+    \href{https://github.com/azhagu-swe}{\color{AccentEmerald}\faGithub\ @azhagu-swe} $|$ 
+    \href{https://azhagu-swe.github.io}{\color{AccentEmerald}\faGlobe\ azhagu-swe.github.io}
+\end{center}
+
+%-----------Summary-----------
+\section{\faIcon{user-tie}\ Professional Summary}
+\small{Full-stack Java Developer with \textbf{3.5+ years of experience} building scalable high-performance systems. Expert in \textbf{Spring Boot microservices, RESTful APIs, and PostgreSQL} optimization. Currently engineering secure banking solutions at \textbf{Infosys}, focusing on transaction efficiency, ACID compliance, and low-latency financial architecture. Proficient in AI-augmented development workflows to accelerate delivery and ensure high code quality.}
+
+%-----------EXPERIENCE-----------
+\section{\faIcon{briefcase}\ Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Infosys}{Nov 2025 \textendash\ Present}
+      {Java Full Stack Developer (Banking Sector)}{Chennai, TN}
+      \resumeItemListStart
+        \resumeItem{Spearheading core \textbf{Banking microservices} development using Java 8+ and Spring Boot, focusing on transaction atomicity, multi-threading, and secure financial processing.}
+        \resumeItem{Architecting high-throughput \textbf{RESTful APIs} designed for financial data integrity and sub-second response times in high-concurrency environments.}
+        \resumeItem{Collaborating in an Agile squad to modernize legacy payment systems, utilizing \textbf{JFrog Artifactory} for secure binary management and \textbf{Splunk} for real-time monitoring and log analytics.}
+        \resumeItem{Utilizing AI-augmented coding tools (\textbf{GitHub Copilot}) to streamline unit testing and achieve \textbf{80\%+} code coverage.}
+      \resumeItemListEnd
+      
+    \resumeSubheading
+      {MEmob Plus Pvt Ltd}{Aug 2022 \textendash\ Oct 2025}
+      {Software Developer}{Chennai, TN}
+      \resumeItemListStart
+        \resumeItem{Optimized distributed microservices, achieving a \textbf{35\% reduction in API latency} through strategic Redis caching, SQL indexing, and query re-engineering.}
+        \resumeItem{Architected a \textbf{unified audience management service} integrating Meta, Snapchat, and TikTok marketing APIs, processing millions of daily data points.}
+        \resumeItem{Modernized legacy monolithic systems by re-architecting critical APIs into microservices, improving system scalability and user experience metrics by 20\%.}
+        \resumeItem{Developed a specialized \textbf{proximity hash algorithm} in Java, significantly increasing location-targeting accuracy for geospatial marketing campaigns.}
+        \resumeItem{Built high-performance dashboards with Next.js and React, improving Core Web Vitals and load times by 25\%.}
+        \resumeItem{Established automated code quality gates using \textbf{SonarQube}, identifying and resolving 100+ critical vulnerabilities pre-production.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{\faIcon{microchip}\ Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{\color{PrimaryEmerald}Languages}{: Java, SQL, JavaScript, TypeScript, HTML, CSS} \\ \vspace{2pt}
+     \textbf{\color{PrimaryEmerald}Backend}{: Spring Boot, Spring MVC, Hibernate, Microservices, RabbitMQ, Redis, REST APIs} \\ \vspace{2pt}
+     \textbf{\color{PrimaryEmerald}Frontend}{: React.js, Next.js, Tailwind CSS, MUI, Shadcn UI, Mapbox} \\ \vspace{2pt}
+     \textbf{\color{PrimaryEmerald}Tools \& Cloud}{: AWS, Docker, Git, SonarQube, Maven, JFrog, Splunk, GitHub Copilot}
+    }}
+ \end{itemize}
+
+%-----------PROJECTS-----------
+\section{\faIcon{code}\ Key Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{FarmConnect \textendash\ Agri-Commerce Platform} $|$ \emph{Spring Boot, PostgreSQL, React, AWS}}{2025}
+          \resumeItemListStart
+            \resumeItem{Architected a full-stack RBAC marketplace with 3 role types (Farmer/Buyer/Admin) and JWT authentication.}
+            \resumeItem{Deployed on AWS EC2 via Docker Compose with search, filtering, and cart systems.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Developer Portfolio \& Blog} $|$ \emph{Next.js, TypeScript, Tailwind CSS, Velite, Framer Motion}}{2024 \textendash\ 2025}
+          \resumeItemListStart
+            \resumeItem{Engineered a high-performance, statically-generated portfolio using \textbf{Next.js App Router} and \textbf{TypeScript}, achieving a \textbf{97/100 Lighthouse score} and sub-second load times.}
+            \resumeItem{Implemented a type-safe content layer with \textbf{Velite} for MDX-based blogging and project documentation, ensuring robust schema validation and optimized build-time performance.}
+            \resumeItem{Designed a responsive, accessible UI with \textbf{Tailwind CSS} and \textbf{Framer Motion}, featuring dynamic theme switching and modern aesthetic micro-interactions.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{\faIcon{graduation-cap}\ Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {H.H. The Rajah's College}{Pudukottai, TN}
+      {Master of Science (M.Sc) in Computer Science (74\%)}{2018 \textendash\ 2020}
+    \resumeSubheading
+      {H.H. The Rajah's College}{Pudukottai, TN}
+      {Bachelor of Science (B.Sc) in Computer Science (71\%)}{2015 \textendash\ 2018}
+  \resumeSubHeadingListEnd
+
+%-----------AWARDS-----------
+\section{\faIcon{trophy}\ Achievements \& Certifications}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Honors}{: Second Prize in National College Debugging Competition at Trichy.} \\
+     \textbf{Certifications}{: Full Stack Java Development $|$ ChatGPT Advanced $|$ Prompt Engineering}
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}
