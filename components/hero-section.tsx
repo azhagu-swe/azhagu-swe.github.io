@@ -5,7 +5,7 @@ import { HERO_DATA, SOCIAL_PROOF_DATA, TRUSTED_BY_DATA } from "@/lib/data"
 import Image from "next/image"
 import { Icon } from "@iconify/react"
 import Link from "next/link"
-import { DecipherText } from "@/components/ui/decipher-text"
+import { EliteText } from "@/components/ui/elite-text"
 
 const MotionLink = motion(Link)
 
@@ -45,11 +45,10 @@ export function HeroSection() {
                             {title}
                         </motion.p>
                         <div className="overflow-hidden">
-                            <DecipherText
+                            <EliteText
                                 text={tagline || `Hey, I'm ${name}.`}
                                 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground"
-                                animate={true}
-                                speed={60}
+                                delay={0.3}
                             />
                         </div>
                     </div>
