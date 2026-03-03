@@ -161,7 +161,7 @@ export function HeroSection() {
                         transition={{ delay: 0.8, duration: 0.3, type: "spring" }}
                         className="absolute -bottom-2 -right-2 md:bottom-4 md:right-0 px-4 py-2 rounded-xl bg-card border-2 border-primary/50 shadow-lg backdrop-blur-sm"
                     >
-                        <span className="text-xs font-bold text-primary tracking-tight">ARCHITECT @ INFOSYS</span>
+                        <span className="text-xs font-bold text-primary tracking-tight">Software Engineer @ INFOSYS</span>
                     </motion.div>
                 </motion.div>
             </div>
