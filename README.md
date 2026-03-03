@@ -16,10 +16,11 @@ This project is a **Progressive Web Application (PWA)** designed to showcase tec
 ### Key Features
 -   **Static Export Strategy:** Zero-runtime overhead, deployed globally via GitHub Pages CDN.
 -   **Interactive Elements:** Giscus comments, Command Palette (`Cmd+K`), and Resume Timeline.
+-   **Content Engine:** Powered by [Velite](https://velite.js.org/) for type-safe content processing and schema validation.
 -   **Performance First:** 
     -   Lighthouse Score: 100/100 (Performance, Accessibility, SEO).
     -   Optimized assets with next/image and font optimization.
--   **Theming:** Dynamic Dark/Light mode with system preference detection and "Matrix" styling.
+-   **Theming:** Dynamic Dark/Light/Abyss/Paper modes with system preference detection.
 
 ---
 
@@ -28,7 +29,8 @@ This project is a **Progressive Web Application (PWA)** designed to showcase tec
 | Component | Technology | Description |
 | :--- | :--- | :--- |
 | **Framework** | Next.js 16 | App Router, Server Components, Static Exports. |
-| **Styling** | Tailwind CSS v3 | Utility-first CSS, Custom Design Tokens. |
+| **Content Engine** | Velite | Schema-driven content processing & validation. |
+| **Styling** | Tailwind CSS v4 | Modern utility-first CSS, Custom Design Tokens. |
 | **Animations** | Framer Motion | Gestures, layout transitions, scroll animations. |
 | **Content** | MDX + Rehype | Markdown with React components (Safe HTML). |
 | **Comments** | Giscus | GitHub Discussions API integration. |
@@ -55,9 +57,9 @@ This project is a **Progressive Web Application (PWA)** designed to showcase tec
 │   └── projects/         # Project Case Studies
 ├── lib/                  # Utilities & Business Logic
 │   ├── data.ts           # Static Data (Resume, Links)
-│   └── mdx.ts            # Content Processing Engine
+│   └── github.ts         # GitHub API Integration
 ├── public/               # Static Assets (Images, Icons)
-└── styles/               # Additional Styles
+└── scripts/              # Build & RSS Scripts
 ```
 
 ---
@@ -85,7 +87,7 @@ This project is a **Progressive Web Application (PWA)** designed to showcase tec
     ```bash
     npm run dev
     ```
-    Acces the app at `http://localhost:3000`.
+    Access the app at `http://localhost:3000`.
 
 ### Building for Production
 
@@ -106,7 +108,7 @@ For a detailed technical breakdown, including High-Level Design (HLD) and Low-Le
 ### Core Concepts
 -   **SSG (Static Site Generation):** All pages are pre-rendered at build time.
 -   **Client-Side Hydration:** React takes over in the browser for interactivity (Search, Theme).
--   **Edge Delivery:** Content is served from the edge, minimizing TTM (Time To Meaningful Paint).
+-   **PWA (Progressive Web App):** Offline support and installable on mobile/desktop.
 
 ---
 
@@ -127,4 +129,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ---
 
 **Designed & Architected by Alagappan P**  
-*Principal Lead Software Architect (Self-Title)*
+*Full-Stack Developer*
